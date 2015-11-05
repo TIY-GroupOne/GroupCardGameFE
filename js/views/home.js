@@ -5,28 +5,22 @@ export default React.createClass({
 
 
   spinClickHandler () {
-<<<<<<< HEAD
       this.props.onSpinClick();
   },
 
-=======
     return this.props.onSpinClick();
-  }, 
-  
->>>>>>> 2a91dc14863f75326af874406d6d7c7ad9250cf1
+  },
+
   logInClickHandler () {
     return this.props.onLogInClick();
   },
 
-<<<<<<< HEAD
   signInClickHandler () {
       this.props.onSignClick();
   },
-=======
   signUpClickHandler () {
      return this.props.onSignUpClick();
-  }, 
->>>>>>> 2a91dc14863f75326af874406d6d7c7ad9250cf1
+  },
 
   render() {
     return (
