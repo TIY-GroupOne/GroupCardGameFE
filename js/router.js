@@ -10,7 +10,10 @@ export default Backbone.Router.extend({
 
 
   routes: {
-        
+   // first view has log-in, sign-up and rules
+    ""        : "homeView",
+    "game"    : "gameView",
+    "signOut" : "signOutView"
 
   },
 
