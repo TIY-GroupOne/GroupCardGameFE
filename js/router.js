@@ -94,10 +94,10 @@ render (component) {
   showMainGameView() {
     this.render(
       // choosen card deck goes here
-      
+       // FIXME 
+      // fill in Choose a card deck route      
       <MainGameComponent
-      // FIXME 
-      // fill in Choose a card deck route     
+    
       onSignOutClick={() => this.goto('goodByeView')}/> 
     );
   }, 
@@ -117,11 +117,10 @@ render (component) {
   showGoodbyeView() {
     this.render(
       // choosen card deck goes here
-      
-      <GoodByeComponent
       // FIXME 
       // text for goodbye page 
-      // do we want a return to game page    
+      // do we want a return to game page       
+      <GoodByeComponent
       onClick={() => this.goto('')}/> 
     );
   },  
