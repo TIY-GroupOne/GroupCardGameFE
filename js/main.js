@@ -5,10 +5,6 @@ import './ajaxSetup';
 import Cookies from 'js-cookie';
 
 
-let element = document.querySelector('.app');
-var router= new Router(element);
-router.start();
-
-window.router=router;
+new Router().start();
 
 console.log('Hello, World');

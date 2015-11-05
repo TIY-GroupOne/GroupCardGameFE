@@ -4,7 +4,7 @@ import React from 'react';
 export default React.createClass({
 
 
-   spinClickHandler () {
+  spinClickHandler () {
       this.props.onSpinClick();
   }, 
   
@@ -12,15 +12,15 @@ export default React.createClass({
       this.props.onLogInClick();
   },
 
-      signInClickHandler () {
+  signInClickHandler () {
       this.props.onSignClick();
   }, 
 
   render() {
     return (
       <div className='tabContainer'>
-        <button onClick ={this.addClickHandler}>Log In</button>
-        <button onClick ={this.addClickHandler}>Sign In</button>
+        <button onClick ={this.logInClickHandler}>Log In</button>
+        <button onClick ={this.signInClickHandler}>Sign In</button>
         <p>   Welcome to Cardyo!
            Sign in or make an account
                 Pick a card deck  
