@@ -72,6 +72,10 @@ var _jsCookie = require('js-cookie');
 
 var _jsCookie2 = _interopRequireDefault(_jsCookie);
 
+var _viewsHome = require('./views/home');
+
+var _viewsHome2 = _interopRequireDefault(_viewsHome);
+
 // import GameComponent from './views/gameView';
 // import ChooseADeckComponent from './views/chooseADeck';
 // import CurrentDeckComponent from './views/currentDeck';
@@ -90,10 +94,6 @@ var _viewsSpinner = require('./views/spinner');
 var _viewsSpinner2 = _interopRequireDefault(_viewsSpinner);
 
 // import SignUpFormComponent from './views/signUpForm';
-
-var _viewsHome = require('./views/home');
-
-var _viewsHome2 = _interopRequireDefault(_viewsHome);
 
 exports['default'] = _backbone2['default'].Router.extend({
 
