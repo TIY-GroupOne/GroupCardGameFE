@@ -1,13 +1,21 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-'use strict';
+"use strict";
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+// import $ from 'jquery';
 
-var _jquery = require('jquery');
+// import{
+// APP_ID,
+// API_KEY,
+// APP_URL
+// } from './parseData';
 
-var _jquery2 = _interopRequireDefault(_jquery);
+// $.ajaxSetup({
+//   headers: {
+//     'X-Parse-Application-Id': APP_ID,
+//     'X-Parse-REST-API-Key': API_KEY
+//   }
+// });
 
-var _parseData = require('./parseData');
 
 _jquery2['default'].ajaxSetup({
   headers: {
@@ -17,6 +25,9 @@ _jquery2['default'].ajaxSetup({
 });
 
 },{"./parseData":3,"jquery":7}],2:[function(require,module,exports){
+
+},{}],2:[function(require,module,exports){
+
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -39,13 +50,10 @@ var _jsCookie = require('js-cookie');
 
 var _jsCookie2 = _interopRequireDefault(_jsCookie);
 
-var element = document.querySelector('.app');
-var router = new _router2['default'](element);
-router.start();
-
-window.router = router;
+new _router2['default']().start();
 
 console.log('Hello, World');
+
 
 },{"./ajaxSetup":1,"./router":4,"js-cookie":8,"react":165,"react-dom":9}],3:[function(require,module,exports){
 'use strict';
@@ -62,6 +70,9 @@ exports.APP_KEY = APP_KEY;
 exports.APP_ID = APP_ID;
 
 },{}],4:[function(require,module,exports){
+
+},{"./ajaxSetup":1,"./router":3,"js-cookie":9,"react":166,"react-dom":10}],3:[function(require,module,exports){
+
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -90,20 +101,30 @@ var _jsCookie = require('js-cookie');
 
 var _jsCookie2 = _interopRequireDefault(_jsCookie);
 
+var _viewsHome = require('./views/home');
+
+var _viewsHome2 = _interopRequireDefault(_viewsHome);
+
+// import GameComponent from './views/gameView';
+// import ChooseADeckComponent from './views/chooseADeck';
+// import CurrentDeckComponent from './views/currentDeck';
+// import CreateDeckComponent from './views/createDeck';
+// import MainGameComponent from './views/mainGame';
+// import SignOutComponent from './views/signOut';
 // import SpinnerComponent from './views/spinner';
 
 exports['default'] = _backbone2['default'].Router.extend({
 
   routes: {
     // first view has log-in, sign-up and rules
-    "": "homeView",
-    "game": "gameView",
-    "chooseDeck": "chooseADeckView",
-    "currentDecks": "currentDecksView",
-    "createDeck": "createANewDeckView",
-    "mainGame": "mainGameView",
-    "signOut": "signOutView",
-    "goodBye": "goodByeView"
+    "": "showHomeView",
+    "game": "showGameView",
+    "chooseDeck": "showChooseADeckView",
+    "currentDecks": "showCurrentDecksView",
+    "createDeck": "showCreateANewDeckView",
+    "mainGame": "showMainGameView",
+    "signOut": "showSignOutView",
+    "goodBye": "showGoodByeView"
 
   },
 
@@ -125,36 +146,36 @@ exports['default'] = _backbone2['default'].Router.extend({
   showHomeView: function showHomeView() {
     var _this = this;
 
-    this.render(
+    _reactDom2['default'].render(
     // tab container goes here
     //log-in + sign-in buttons go here
     //'About Game' goes here
     //"START" button goes here, directs to GameView below
-    _react2['default'].createElement(HomeComponent, {
+    _react2['default'].createElement(_viewsHome2['default'], {
       onLogInClick: function () {
         return _this.goto('mainGameView');
       },
       onSignInClickClick: function () {
         return _this.goto('createANewDeckView');
-      } }));
+      } }), document.querySelector('.app'));
   },
 
   showGameView: function showGameView() {
     var _this2 = this;
 
-    this.render(_react2['default'].createElement(GameComponent, {
+    _reactDom2['default'].render(_react2['default'].createElement(GameComponent, {
       onChooseADeckClick: function () {
         return _this2.goto('chooseADeckView');
       },
       onCreateANewDeckClick: function () {
         return _this2.goto('createANewDeckView');
-      } }));
+      } }), document.querySelector('.app'));
   },
 
   showChooseADeck: function showChooseADeck() {
     var _this3 = this;
 
-    this.render(
+    _reactDom2['default'].render(
 
     //FIXME
     // preset card-containing divs go here
@@ -162,13 +183,13 @@ exports['default'] = _backbone2['default'].Router.extend({
     _react2['default'].createElement(ChooseComponent, {
       onCreateANewDeckClick: function () {
         return _this3.goto('createANewDeckView');
-      } }));
+      } }), document.querySelector('.app'));
   },
 
   showCurrentDecks: function showCurrentDecks() {
     var _this4 = this;
 
-    this.render(
+    _reactDom2['default'].render(
     // preset card-containing divs go here
 
     //FIXME
@@ -179,36 +200,35 @@ exports['default'] = _backbone2['default'].Router.extend({
       },
       onCreateANewDeckClick: function () {
         return _this4.goto('createANewDeckView');
-      } }));
+      } }), document.querySelector('.app'));
   },
 
   showCreateANewDeckView: function showCreateANewDeckView() {
     var _this5 = this;
 
-    this.render(_react2['default'].createElement(CreateComponent, {
+    _reactDom2['default'].render(_react2['default'].createElement(CreateComponent, {
       onDeckCompleteClick: function () {
         return _this5.goto('mainGameView');
-      } }));
+      } }), document.querySelector('.app'));
   },
 
   showMainGameView: function showMainGameView() {
     var _this6 = this;
 
-    this.render(
+    _reactDom2['default'].render(
     // choosen card deck goes here
     // FIXME
-    // fill in Choose a card deck route     
+    // fill in Choose a card deck route
     _react2['default'].createElement(MainGameComponent, {
-
       onSignOutClick: function () {
         return _this6.goto('goodByeView');
-      } }));
+      } }), document.querySelector('.app'));
   },
 
   showSignOutView: function showSignOutView() {
     var _this7 = this;
 
-    this.render(
+    _reactDom2['default'].render(
     // FIXME
     // sign out/delete profile buttons go here
     _react2['default'].createElement(SignOutComponent, {
@@ -220,21 +240,21 @@ exports['default'] = _backbone2['default'].Router.extend({
       },
       onDeleteClick: function () {
         return _this7.goto('goodyeView');
-      } }));
+      } }), document.querySelector('.app'));
   },
 
   showGoodbyeView: function showGoodbyeView() {
     var _this8 = this;
 
-    this.render(
+    _reactDom2['default'].render(
     // choosen card deck goes here
     // FIXME
     // text for goodbye page
-    // do we want a return to game page      
+    // do we want a return to game page
     _react2['default'].createElement(GoodByeComponent, {
       onClick: function () {
         return _this8.goto('');
-      } }));
+      } }), document.querySelector('.app'));
   },
 
   // showSpinner () {
@@ -245,10 +265,67 @@ exports['default'] = _backbone2['default'].Router.extend({
     _backbone2['default'].history.start();
   }
 });
-exports['default'] = Router;
 module.exports = exports['default'];
 
+
 },{"backbone":5,"jquery":7,"js-cookie":8,"react":165,"react-dom":9}],5:[function(require,module,exports){
+
+},{"./views/home":4,"backbone":5,"jquery":8,"js-cookie":9,"react":166,"react-dom":10}],4:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+// import any linked views
+
+exports['default'] = _react2['default'].createClass({
+  displayName: 'home',
+
+  spinClickHandler: function spinClickHandler() {
+    this.props.onSpinClick();
+  },
+
+  logInClickHandler: function logInClickHandler() {
+    this.props.onLogInClick();
+  },
+
+  signInClickHandler: function signInClickHandler() {
+    this.props.onSignClick();
+  },
+
+  render: function render() {
+    return _react2['default'].createElement(
+      'div',
+      { className: 'tabContainer' },
+      _react2['default'].createElement(
+        'button',
+        { onClick: this.logInClickHandler },
+        'Log In'
+      ),
+      _react2['default'].createElement(
+        'button',
+        { onClick: this.signInClickHandler },
+        'Sign In'
+      ),
+      _react2['default'].createElement(
+        'p',
+        null,
+        '   Welcome to Cardyo! Sign in or make an account Pick a card deck OR Make a new deck Race against the clock to set a new high score If you quit the game, your progress will not be saved Ready? Here we go!'
+      )
+    );
+  }
+});
+module.exports = exports['default'];
+
+},{"react":166}],5:[function(require,module,exports){
+
 (function (global){
 //     Backbone.js 1.2.3
 
@@ -30411,7 +30488,7 @@ module.exports = performanceNow;
  *
  * @providesModule shallowEqual
  * @typechecks
- * 
+ *
  */
 
 'use strict';
