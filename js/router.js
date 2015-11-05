@@ -4,7 +4,16 @@ import ReactDom from 'react-dom';
 import $ from 'jquery';
 import Cookies from 'js-cookie';
 
-// import SpinnerComponent from './views/spinner';
+import HomeComponent from './views/homeView';
+import GameComponent from './views/gameView';
+import ChooseADeckComponent from './views/chooseADeckView';
+import CurrentDeckComponent from './views/currentDeckView';
+import CreateDeckComponent from './views/createDeckView';
+import MainGameComponent from './views/mainGameView';
+import AddComponent from './views/addView';
+import SignOutComponent from './views/signOutView';
+import SpinnerComponent from './views/spinner';
+
 
 
 export default Backbone.Router.extend({
@@ -100,7 +109,6 @@ render (component) {
        // FIXME 
       // fill in Choose a card deck route      
       <MainGameComponent
-    
       onSignOutClick={() => this.goto('goodByeView')}/> 
     );
   }, 
