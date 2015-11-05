@@ -4,7 +4,7 @@ import ReactDom from 'react-dom';
 import $ from 'jquery';
 import Cookies from 'js-cookie';
 
-import SpinnerComponent from './views/spinner';
+// import SpinnerComponent from './views/spinner';
 
 
 export default Backbone.Router.extend({
@@ -25,7 +25,7 @@ export default Backbone.Router.extend({
   },
 
    initialize(appElement) {
-    this.el =appElement;
+    this.el=appElement;
     //add any models/resources here
 
   },
@@ -39,7 +39,7 @@ export default Backbone.Router.extend({
 
 render (component) {
   ReactDom.render(component, this.el);
-}
+},
 
   showHomeView() {
     this.render(
@@ -47,8 +47,11 @@ render (component) {
           //log-in + sign-in buttons go here
           //'About Game' goes here
           //"START" button goes here, directs to GameView below
+      <HomeComponent
+      onLogInClick={()=> this.goto('mainGameView')}   
+      onSignInClickClick={() => this.goto('createANewDeckView')}/> 
         );
-      });
+ 
   },
 
   showGameView() {
@@ -79,7 +82,7 @@ render (component) {
       //FIXME
       //needs a button to return to 
       <CurrentComponent
-      onPlayClick={( => this.goto('mainGameView'))}   
+      onPlayClick={()=> this.goto('mainGameView')}   
       onCreateANewDeckClick={() => this.goto('createANewDeckView')}/> 
     );
   },  
@@ -94,10 +97,10 @@ render (component) {
   showMainGameView() {
     this.render(
       // choosen card deck goes here
-      
+       // FIXME 
+      // fill in Choose a card deck route      
       <MainGameComponent
-      // FIXME 
-      // fill in Choose a card deck route     
+    
       onSignOutClick={() => this.goto('goodByeView')}/> 
     );
   }, 
@@ -117,18 +120,17 @@ render (component) {
   showGoodbyeView() {
     this.render(
       // choosen card deck goes here
-      
-      <GoodByeComponent
       // FIXME 
       // text for goodbye page 
-      // do we want a return to game page    
+      // do we want a return to game page       
+      <GoodByeComponent
       onClick={() => this.goto('')}/> 
     );
   },  
 
-  showSpinner () {
-    ReactDom.render(<SpinnerComponent/>);
-  },
+  // showSpinner () {
+  //   ReactDom.render(<SpinnerComponent/>);
+  // },
   
 
 start: function (){
