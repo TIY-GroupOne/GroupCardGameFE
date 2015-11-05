@@ -3,6 +3,10 @@ import React from 'react';
 
 export default React.createClass({
 
+  spinClickHandler () {
+    return this.props.onSpinClick();
+  },
+  
   signOutClickHandler () {
      return this.props.onSignOutClick();
   }, 
@@ -11,8 +15,8 @@ export default React.createClass({
    render() {
     return (
       <div>
-      <div>Game</div>
-      <div>Log In Form</div>
+        <div>Game</div>
+        <div>Log In Form</div>
         <button onClick ={this.signOutClickHandler}>Sign Out</button>
       </div>
 

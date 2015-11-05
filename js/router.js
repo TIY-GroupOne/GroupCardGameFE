@@ -6,7 +6,7 @@ import Cookies from 'js-cookie';
 
 import HomeComponent from './views/home';
 import GameComponent from './views/game';
-import ChooseADeckComponent from './views/chooseADeck';
+import ChooseADeckComponent from './views/chooseDeck';
 import CurrentDeckComponent from './views/currentDecks';
 import CreateDeckComponent from './views/createANewDeck';
 import MainGameComponent from './views/mainGame';
@@ -28,7 +28,7 @@ export default Backbone.Router.extend({
     "game"         : "showGameView",
     "signupForm"   : "showSignUpFormView", 
     "chooseDeck"   : "showChooseADeckView",
-    "currentDecks" : "showCurrentDecks",
+    "currentDecks" : "showCurrentDecksView",
     "createDeck"   : "showCreateANewDeckView",
     "mainGame"     : "showMainGameView",
     "signOut"      : "showSignOutView",
@@ -71,33 +71,33 @@ render (component) {
 
       
       <GameComponent   
-      onChooseADeckClick={() => this.goto('chooseADeck')}
-      onCreateANewDeckClick={() => this.goto('createANewDeck')}/>,
+      onChooseADeckClick={() => this.goto('chooseDeck')}
+      onCreateANewDeckClick={() => this.goto('createDeck')}/>,
       document.querySelector('.app')
         );
   },
 
-  showChooseADeck() {
+  showChooseADeckView() {
     ReactDom.render(
       
       //FIXME
       // preset card-containing divs go here
       // AFTER deck is choosen, return to main game view
-      <ChooseComponent
-      onCreateANewDeckClick={() => this.goto('createANewDeck')}/>, 
+      <ChooseADeckComponent
+      onCreateDeckClick={() => this.goto('createDeck')}/>, 
       document.querySelector('.app')
     );
   },  
 
-  showCurrentDecks() {
+  showCurrentDecksView() {
     ReactDom.render(
       // preset card-containing divs go here
       
       //FIXME
       //needs a button to return to 
-      <CurrentComponent
+      <CurrentDecksComponent
       onPlayClick={()=> this.goto('mainGameView')}   
-      onCreateANewDeckClick={() => this.goto('createANewDeck')}/>,
+      onCreateDeckClick={() => this.goto('createDeck')}/>,
       document.querySelector('.app') 
     );
   },  
@@ -140,7 +140,7 @@ render (component) {
       // text for goodbye page 
       // do we want a return to game page       
       <GoodByeComponent
-      onClick={() => this.goto('')}/>,
+      onReturnClick={() => this.goto('mainGame')}/>,
       document.querySelector('.app')
     );
   }, 
@@ -156,9 +156,9 @@ render (component) {
     );
   },  
 
-  // showSpinner () {
-  //   ReactDom.render(<SpinnerComponent/>);
-  // },
+  showSpinner () {
+    ReactDom.render(<SpinnerComponent/>);
+  },
   
 
 start: function (){
