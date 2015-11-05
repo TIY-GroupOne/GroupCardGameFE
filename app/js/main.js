@@ -80,9 +80,9 @@ var _viewsGame = require('./views/game');
 
 var _viewsGame2 = _interopRequireDefault(_viewsGame);
 
-var _viewsChooseADeck = require('./views/chooseADeck');
+var _viewsChooseDeck = require('./views/chooseDeck');
 
-var _viewsChooseADeck2 = _interopRequireDefault(_viewsChooseADeck);
+var _viewsChooseDeck2 = _interopRequireDefault(_viewsChooseDeck);
 
 var _viewsCurrentDecks = require('./views/currentDecks');
 
@@ -120,7 +120,7 @@ exports['default'] = _backbone2['default'].Router.extend({
     "game": "showGameView",
     "signupForm": "showSignUpFormView",
     "chooseDeck": "showChooseADeckView",
-    "currentDecks": "showCurrentDecks",
+    "currentDecks": "showCurrentDecksView",
     "createDeck": "showCreateANewDeckView",
     "mainGame": "showMainGameView",
     "signOut": "showSignOutView",
@@ -165,14 +165,14 @@ exports['default'] = _backbone2['default'].Router.extend({
 
     _reactDom2['default'].render(_react2['default'].createElement(_viewsGame2['default'], {
       onChooseADeckClick: function () {
-        return _this2.goto('chooseADeck');
+        return _this2.goto('chooseDeck');
       },
       onCreateANewDeckClick: function () {
-        return _this2.goto('createANewDeck');
+        return _this2.goto('createDeck');
       } }), document.querySelector('.app'));
   },
 
-  showChooseADeck: function showChooseADeck() {
+  showChooseADeckView: function showChooseADeckView() {
     var _this3 = this;
 
     _reactDom2['default'].render(
@@ -180,13 +180,13 @@ exports['default'] = _backbone2['default'].Router.extend({
     //FIXME
     // preset card-containing divs go here
     // AFTER deck is choosen, return to main game view
-    _react2['default'].createElement(ChooseComponent, {
-      onCreateANewDeckClick: function () {
-        return _this3.goto('createANewDeck');
+    _react2['default'].createElement(_viewsChooseDeck2['default'], {
+      onCreateDeckClick: function () {
+        return _this3.goto('createDeck');
       } }), document.querySelector('.app'));
   },
 
-  showCurrentDecks: function showCurrentDecks() {
+  showCurrentDecksView: function showCurrentDecksView() {
     var _this4 = this;
 
     _reactDom2['default'].render(
@@ -194,12 +194,12 @@ exports['default'] = _backbone2['default'].Router.extend({
 
     //FIXME
     //needs a button to return to
-    _react2['default'].createElement(CurrentComponent, {
+    _react2['default'].createElement(CurrentDecksComponent, {
       onPlayClick: function () {
         return _this4.goto('mainGameView');
       },
-      onCreateANewDeckClick: function () {
-        return _this4.goto('createANewDeck');
+      onCreateDeckClick: function () {
+        return _this4.goto('createDeck');
       } }), document.querySelector('.app'));
   },
 
@@ -252,8 +252,8 @@ exports['default'] = _backbone2['default'].Router.extend({
     // text for goodbye page
     // do we want a return to game page      
     _react2['default'].createElement(_viewsGoodbye2['default'], {
-      onClick: function () {
-        return _this8.goto('');
+      onReturnClick: function () {
+        return _this8.goto('mainGame');
       } }), document.querySelector('.app'));
   },
 
@@ -270,9 +270,9 @@ exports['default'] = _backbone2['default'].Router.extend({
       } }), document.querySelector('.app'));
   },
 
-  // showSpinner () {
-  //   ReactDom.render(<SpinnerComponent/>);
-  // },
+  showSpinner: function showSpinner() {
+    _reactDom2['default'].render(_react2['default'].createElement(_viewsSpinner2['default'], null));
+  },
 
   start: function start() {
     _backbone2['default'].history.start();
@@ -280,7 +280,7 @@ exports['default'] = _backbone2['default'].Router.extend({
 });
 module.exports = exports['default'];
 
-},{"./views/chooseADeck":4,"./views/createANewDeck":5,"./views/currentDecks":6,"./views/game":7,"./views/goodbye":8,"./views/home":9,"./views/mainGame":10,"./views/signOut":11,"./views/signUpForm":12,"./views/spinner":13,"backbone":14,"jquery":17,"js-cookie":18,"react":175,"react-dom":19}],4:[function(require,module,exports){
+},{"./views/chooseDeck":4,"./views/createANewDeck":5,"./views/currentDecks":6,"./views/game":7,"./views/goodbye":8,"./views/home":9,"./views/mainGame":10,"./views/signOut":11,"./views/signUpForm":12,"./views/spinner":13,"backbone":14,"jquery":17,"js-cookie":18,"react":175,"react-dom":19}],4:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -296,10 +296,14 @@ var _react2 = _interopRequireDefault(_react);
 //import any linked views
 
 exports['default'] = _react2['default'].createClass({
-  displayName: 'chooseADeck',
+  displayName: 'chooseDeck',
 
-  CreateANewDeckClickHandler: function CreateANewDeckClickHandler() {
-    return this.props.onCreateANewDeckClick();
+  spinClickHandler: function spinClickHandler() {
+    return this.props.onSpinClick();
+  },
+
+  createDeckClickHandler: function createDeckClickHandler() {
+    return this.props.onCreateDeckClick();
   },
 
   render: function render() {
@@ -313,8 +317,8 @@ exports['default'] = _react2['default'].createClass({
       ),
       _react2['default'].createElement(
         'button',
-        null,
-        'Create a New Deck'
+        { onClick: this.createDeckClickHandler },
+        'Create A New Deck'
       )
     );
   }
@@ -341,6 +345,14 @@ var _react2 = _interopRequireDefault(_react);
 exports['default'] = _react2['default'].createClass({
   displayName: 'createANewDeck',
 
+  spinClickHandler: function spinClickHandler() {
+    return this.props.onSpinClick();
+  },
+
+  deckCompleteClickHandler: function deckCompleteClickHandler() {
+    return this.props.onDeckCompleteClick();
+  },
+
   render: function render() {
     return _react2['default'].createElement(
       'div',
@@ -349,6 +361,11 @@ exports['default'] = _react2['default'].createClass({
         'p',
         null,
         'Create a New Deck'
+      ),
+      _react2['default'].createElement(
+        'button',
+        { onClick: this.deckCompleteClickHandler },
+        'Deck Complete'
       )
     );
   }
@@ -374,6 +391,10 @@ var _react2 = _interopRequireDefault(_react);
 
 exports['default'] = _react2['default'].createClass({
   displayName: 'currentDecks',
+
+  spinClickHandler: function spinClickHandler() {
+    return this.props.onSpinClick();
+  },
 
   PlayClickHandler: function PlayClickHandler() {
     return this.props.onPlayClick();
@@ -425,6 +446,10 @@ var _react2 = _interopRequireDefault(_react);
 
 exports['default'] = _react2['default'].createClass({
   displayName: 'game',
+
+  spinClickHandler: function spinClickHandler() {
+    return this.props.onSpinClick();
+  },
 
   chooseADeckClickHandler: function chooseADeckClickHandler() {
     return this.props.onChooseADeckClick();
@@ -478,6 +503,14 @@ var _react2 = _interopRequireDefault(_react);
 exports['default'] = _react2['default'].createClass({
   displayName: 'goodbye',
 
+  spinClickHandler: function spinClickHandler() {
+    return this.props.onSpinClick();
+  },
+
+  returnClickHandler: function returnClickHandler() {
+    return this.props.onReturnClick();
+  },
+
   render: function render() {
     return _react2['default'].createElement(
       'div',
@@ -486,6 +519,16 @@ exports['default'] = _react2['default'].createClass({
         'p',
         null,
         'Goodbye'
+      ),
+      _react2['default'].createElement(
+        'p',
+        null,
+        'return to main page Button? Auto-timed return?'
+      ),
+      _react2['default'].createElement(
+        'button',
+        { onClick: this.returnClickHandler },
+        'Return to Game'
       )
     );
     console.log('goodbye page');
@@ -565,6 +608,10 @@ var _react2 = _interopRequireDefault(_react);
 exports['default'] = _react2['default'].createClass({
   displayName: 'mainGame',
 
+  spinClickHandler: function spinClickHandler() {
+    return this.props.onSpinClick();
+  },
+
   signOutClickHandler: function signOutClickHandler() {
     return this.props.onSignOutClick();
   },
@@ -611,6 +658,10 @@ var _react2 = _interopRequireDefault(_react);
 
 exports['default'] = _react2['default'].createClass({
   displayName: 'signOut',
+
+  spinClickHandler: function spinClickHandler() {
+    return this.props.onSpinClick();
+  },
 
   returnClickHandler: function returnClickHandler() {
     return this.props.onReturnClick();
@@ -666,6 +717,10 @@ var _react2 = _interopRequireDefault(_react);
 
 exports['default'] = _react2['default'].createClass({
   displayName: 'signUpForm',
+
+  spinClickHandler: function spinClickHandler() {
+    return this.props.onSpinClick();
+  },
 
   signUpClickHandler: function signUpClickHandler() {
     return this.props.onSignUpClick();

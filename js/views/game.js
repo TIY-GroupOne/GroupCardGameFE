@@ -3,6 +3,10 @@ import React from 'react';
 
 export default React.createClass({
 
+  spinClickHandler () {
+    return this.props.onSpinClick();
+  },
+  
   chooseADeckClickHandler () {
      return this.props.onChooseADeckClick();
   }, 
@@ -14,7 +18,7 @@ export default React.createClass({
    render() {
     return (
       <div>
-      <div>Game view</div>
+        <div>Game view</div>
         <button onClick ={this.chooseADeckClickHandler}>Choose A Deck</button>
         <button onClick ={this.createANewDeckClickHandler}>Create A New Deck</button>
       </div>

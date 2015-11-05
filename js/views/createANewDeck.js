@@ -3,11 +3,19 @@ import React from 'react';
 
 export default React.createClass({
 
+  spinClickHandler () {
+    return this.props.onSpinClick();
+  },  
+
+  deckCompleteClickHandler () {
+    return this.props.onDeckCompleteClick();
+  },
 
    render() {
     return (
       <div>
-      <p>Create a New Deck</p>
+        <p>Create a New Deck</p>
+        <button onClick ={this.deckCompleteClickHandler}>Deck Complete</button>
       </div>
       );
         

@@ -3,6 +3,10 @@ import React from 'react';
 
 export default React.createClass({
 
+  spinClickHandler () {
+    return this.props.onSpinClick();
+  },
+  
   returnClickHandler () {
      return this.props.onReturnClick();
   }, 
