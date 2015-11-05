@@ -16,18 +16,7 @@
 //   }
 // });
 
-
-_jquery2['default'].ajaxSetup({
-  headers: {
-    'X-Parse-Application-Id': _parseData.APP_ID,
-    'X-Parse-REST-API-Key': _parseData.API_KEY
-  }
-});
-
-},{"./parseData":3,"jquery":7}],2:[function(require,module,exports){
-
 },{}],2:[function(require,module,exports){
-
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -54,25 +43,7 @@ new _router2['default']().start();
 
 console.log('Hello, World');
 
-
-},{"./ajaxSetup":1,"./router":4,"js-cookie":8,"react":165,"react-dom":9}],3:[function(require,module,exports){
-'use strict';
-
-Object.defineProperty(exports, '__esModule', {
-  value: true
-});
-var APP_ID = '';
-var API_KEY = '';
-var APP_URL = '';
-
-exports.APP_URL = APP_URL;
-exports.APP_KEY = APP_KEY;
-exports.APP_ID = APP_ID;
-
-},{}],4:[function(require,module,exports){
-
-},{"./ajaxSetup":1,"./router":3,"js-cookie":9,"react":166,"react-dom":10}],3:[function(require,module,exports){
-
+},{"./ajaxSetup":1,"./router":3,"js-cookie":8,"react":165,"react-dom":9}],3:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -218,7 +189,7 @@ exports['default'] = _backbone2['default'].Router.extend({
     _reactDom2['default'].render(
     // choosen card deck goes here
     // FIXME
-    // fill in Choose a card deck route
+    // fill in Choose a card deck route     
     _react2['default'].createElement(MainGameComponent, {
       onSignOutClick: function () {
         return _this6.goto('goodByeView');
@@ -250,7 +221,7 @@ exports['default'] = _backbone2['default'].Router.extend({
     // choosen card deck goes here
     // FIXME
     // text for goodbye page
-    // do we want a return to game page
+    // do we want a return to game page      
     _react2['default'].createElement(GoodByeComponent, {
       onClick: function () {
         return _this8.goto('');
@@ -267,14 +238,11 @@ exports['default'] = _backbone2['default'].Router.extend({
 });
 module.exports = exports['default'];
 
-
-},{"backbone":5,"jquery":7,"js-cookie":8,"react":165,"react-dom":9}],5:[function(require,module,exports){
-
-},{"./views/home":4,"backbone":5,"jquery":8,"js-cookie":9,"react":166,"react-dom":10}],4:[function(require,module,exports){
+},{"./views/home":4,"backbone":5,"jquery":7,"js-cookie":8,"react":165,"react-dom":9}],4:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
-  value: true
+    value: true
 });
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -286,46 +254,45 @@ var _react2 = _interopRequireDefault(_react);
 // import any linked views
 
 exports['default'] = _react2['default'].createClass({
-  displayName: 'home',
+    displayName: 'home',
 
-  spinClickHandler: function spinClickHandler() {
-    this.props.onSpinClick();
-  },
+    spinClickHandler: function spinClickHandler() {
+        this.props.onSpinClick();
+    },
 
-  logInClickHandler: function logInClickHandler() {
-    this.props.onLogInClick();
-  },
+    logInClickHandler: function logInClickHandler() {
+        this.props.onLogInClick();
+    },
 
-  signInClickHandler: function signInClickHandler() {
-    this.props.onSignClick();
-  },
+    signInClickHandler: function signInClickHandler() {
+        this.props.onSignClick();
+    },
 
-  render: function render() {
-    return _react2['default'].createElement(
-      'div',
-      { className: 'tabContainer' },
-      _react2['default'].createElement(
-        'button',
-        { onClick: this.logInClickHandler },
-        'Log In'
-      ),
-      _react2['default'].createElement(
-        'button',
-        { onClick: this.signInClickHandler },
-        'Sign In'
-      ),
-      _react2['default'].createElement(
-        'p',
-        null,
-        '   Welcome to Cardyo! Sign in or make an account Pick a card deck OR Make a new deck Race against the clock to set a new high score If you quit the game, your progress will not be saved Ready? Here we go!'
-      )
-    );
-  }
+    render: function render() {
+        return _react2['default'].createElement(
+            'div',
+            { className: 'tabContainer' },
+            _react2['default'].createElement(
+                'button',
+                { onClick: this.logInClickHandler },
+                'Log In'
+            ),
+            _react2['default'].createElement(
+                'button',
+                { onClick: this.signInClickHandler },
+                'Sign In'
+            ),
+            _react2['default'].createElement(
+                'p',
+                null,
+                '   Welcome to Cardyo! Sign in or make an account Pick a card deck OR Make a new deck Race against the clock to set a new high score If you quit the game, your progress will not be saved Ready? Here we go!'
+            )
+        );
+    }
 });
 module.exports = exports['default'];
 
-},{"react":166}],5:[function(require,module,exports){
-
+},{"react":165}],5:[function(require,module,exports){
 (function (global){
 //     Backbone.js 1.2.3
 
@@ -30488,7 +30455,7 @@ module.exports = performanceNow;
  *
  * @providesModule shallowEqual
  * @typechecks
- *
+ * 
  */
 
 'use strict';
