@@ -1,13 +1,14 @@
 import React from 'react';
-//import any linked views
 
 export default React.createClass({
 
 
-   render() {
+
+  render() {
     return (
-      
+      <div>
+        <i className ='fa fa-spinner fa-spin'/>
+      </div>
       );
-        
   }
 });
