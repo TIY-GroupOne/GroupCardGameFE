@@ -12,15 +12,15 @@ export default React.createClass({
     return this.props.onLogInClick();
   },
 
-  signInClickHandler () {
-     return this.props.onSignClick();
+  signUpClickHandler () {
+     return this.props.onSignUpClick();
   }, 
 
   render() {
     return (
       <div className='tabContainer'>
-        <button onClick ={this.props.onLogInClickHandler}>Log In</button>
-        <button onClick ={this.props.onSignUpClickHandler}>Sign Up</button>
+        <button onClick ={this.logInClickHandler}>Log In</button>
+        <button onClick ={this.signUpClickHandler}>Sign Up</button>
         <p>   Welcome to Cardyo!
            Sign in or make an account
                 Pick a card deck  
