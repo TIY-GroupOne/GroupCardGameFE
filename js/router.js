@@ -4,7 +4,7 @@ import ReactDom from 'react-dom';
 import $ from 'jquery';
 import Cookies from 'js-cookie';
 
-import SpinnerComponent from './views/spinner';
+// import SpinnerComponent from './views/spinner';
 
 
 export default Backbone.Router.extend({
@@ -39,7 +39,7 @@ export default Backbone.Router.extend({
 
 render (component) {
   ReactDom.render(component, this.el);
-}
+},
 
   showHomeView() {
     this.render(
@@ -48,19 +48,10 @@ render (component) {
           //'About Game' goes here
           //"START" button goes here, directs to GameView below
       <HomeComponent
-      onLogInClick={( => this.goto('mainGameView'))}   
-      onSignInClickClick={() => this.goto('createANewDeckView')}
-      <p>               Welcome to Cardyo!
-
-           Sign in or make an account
-                Pick a card deck  
-                      OR
-                Make a new deck 
-  Race against the clock to set a new high score
-If you quit the game, your progress will not be saved
-               Ready? Here we go!} <p/>/> 
+      onLogInClick={()=> this.goto('mainGameView')}   
+      onSignInClickClick={() => this.goto('createANewDeckView')}/> 
         );
-      });
+ 
   },
 
   showGameView() {
@@ -91,7 +82,7 @@ If you quit the game, your progress will not be saved
       //FIXME
       //needs a button to return to 
       <CurrentComponent
-      onPlayClick={( => this.goto('mainGameView'))}   
+      onPlayClick={()=> this.goto('mainGameView')}   
       onCreateANewDeckClick={() => this.goto('createANewDeckView')}/> 
     );
   },  
@@ -137,9 +128,9 @@ If you quit the game, your progress will not be saved
     );
   },  
 
-  showSpinner () {
-    ReactDom.render(<SpinnerComponent/>);
-  },
+  // showSpinner () {
+  //   ReactDom.render(<SpinnerComponent/>);
+  // },
   
 
 start: function (){
