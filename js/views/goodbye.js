@@ -6,8 +6,11 @@ export default React.createClass({
 
    render() {
     return (
-      
+      <div>
+      <p>Goodbye</p>
+      </div>
       );
+    console.log('goodbye page');
         
   }
 });
