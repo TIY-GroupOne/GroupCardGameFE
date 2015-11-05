@@ -25,7 +25,7 @@ export default Backbone.Router.extend({
   },
 
    initialize(appElement) {
-    this.el =appElement;
+    this.el=appElement;
     //add any models/resources here
 
   },
@@ -47,6 +47,18 @@ render (component) {
           //log-in + sign-in buttons go here
           //'About Game' goes here
           //"START" button goes here, directs to GameView below
+      <HomeComponent
+      onLogInClick={( => this.goto('mainGameView'))}   
+      onSignInClickClick={() => this.goto('createANewDeckView')}
+      <p>               Welcome to Cardyo!
+
+           Sign in or make an account
+                Pick a card deck  
+                      OR
+                Make a new deck 
+  Race against the clock to set a new high score
+If you quit the game, your progress will not be saved
+               Ready? Here we go!} <p/>/> 
         );
       });
   },
