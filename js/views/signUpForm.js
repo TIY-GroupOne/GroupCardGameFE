@@ -15,6 +15,13 @@ export default React.createClass({
     return (
       <div className='signUpForm'>
         <p>Sign Up Form</p>
+        <form>
+          <input text="username" type="username"/>
+          <br/>
+          <input text="password" type="password"/>
+          <br/>
+          <input text="email" type="email"/>
+        </form>
         <button onClick ={this.signUpClickHandler}>Sign Up</button>
       </div>
       );

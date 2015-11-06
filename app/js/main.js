@@ -1,21 +1,6 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 "use strict";
 
-// import $ from 'jquery';
-
-// import{
-// APP_ID,
-// API_KEY,
-// APP_URL
-// } from './parseData';
-
-// $.ajaxSetup({
-//   headers: {
-//     'X-Parse-Application-Id': APP_ID,
-//     'X-Parse-REST-API-Key': API_KEY
-//   }
-// });
-
 },{}],2:[function(require,module,exports){
 'use strict';
 
@@ -571,19 +556,49 @@ exports['default'] = _react2['default'].createClass({
       'div',
       { className: 'tabContainer' },
       _react2['default'].createElement(
+        'form',
+        null,
+        _react2['default'].createElement('input', { text: 'username', type: 'username' }),
+        _react2['default'].createElement('br', null),
+        _react2['default'].createElement('input', { text: 'password', type: 'password' })
+      ),
+      _react2['default'].createElement(
         'button',
         { onClick: this.logInClickHandler },
         'Log In'
       ),
+      _react2['default'].createElement('br', null),
+      _react2['default'].createElement(
+        'p',
+        null,
+        'First visit to Cardyo?'
+      ),
+      _react2['default'].createElement('br', null),
       _react2['default'].createElement(
         'button',
         { onClick: this.signUpClickHandler },
         'Sign Up'
       ),
+      _react2['default'].createElement('br', null),
       _react2['default'].createElement(
         'p',
         null,
-        '   Welcome to Cardyo! Sign in or make an account Pick a card deck OR Make a new deck Race against the clock to set a new high score If you quit the game, your progress will not be saved Ready? Here we go!'
+        ' Welcome to Cardyo!',
+        _react2['default'].createElement('br', null),
+        'Sign in or make an account',
+        _react2['default'].createElement('br', null),
+        'Pick a card deck',
+        _react2['default'].createElement('br', null),
+        'OR',
+        _react2['default'].createElement('br', null),
+        'Make a new deck',
+        _react2['default'].createElement('br', null),
+        'Race against the clock to set a new high score',
+        _react2['default'].createElement('br', null),
+        'If you quit the game, your progress will not be saved',
+        _react2['default'].createElement('br', null),
+        'Ready? Here we go!',
+        _react2['default'].createElement('br', null)
       )
     );
   }
@@ -734,6 +749,15 @@ exports['default'] = _react2['default'].createClass({
         'p',
         null,
         'Sign Up Form'
+      ),
+      _react2['default'].createElement(
+        'form',
+        null,
+        _react2['default'].createElement('input', { text: 'username', type: 'username' }),
+        _react2['default'].createElement('br', null),
+        _react2['default'].createElement('input', { text: 'password', type: 'password' }),
+        _react2['default'].createElement('br', null),
+        _react2['default'].createElement('input', { text: 'email', type: 'email' })
       ),
       _react2['default'].createElement(
         'button',
