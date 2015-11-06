@@ -1,8 +1,40 @@
 import React from 'react';
+import $ from 'jquery';
 // import any linked views
+
+const API_URL2 = 'http://cardyo.herokuapp.com/login';
+
 
 export default React.createClass({
 
+  saveandContinue (e) {
+    e.preventDefault()
+ 
+    // Get values via this.refs
+    var data = {
+      username : this.refs.username.value,
+      password : this.refs.password.value,
+      access_token : '57382acf28c9e196dca58c62d36a001e'
+    };
+
+    var loginAccount = function(accountobj) {
+    $.ajax({
+        url: API_URL2,
+        type: 'POST',
+        data: accountobj,
+        success: function () {
+          alert('you logged in');
+        
+        },
+        error: function () {
+          alert('you suck at this!');
+        }
+        })
+        };
+      loginAccount(data);
+      console.log(data);
+
+  },
 
   spinClickHandler () {
     return this.props.onSpinClick();
@@ -20,11 +52,11 @@ export default React.createClass({
     return (
       <div className='tabContainer'>
         <form>
-          <input text="username" type="username"/>
+          <input ref="username" type="username"/>
           <br/>
-          <input text="password" type="password"/>
+          <input ref="password" type="password"/>
         </form>
-        <button onClick ={this.logInClickHandler}>Log In</button>
+        <button onClick ={this.saveandContinue}>Log In</button>
         <br/>
         <p>First visit to Cardyo?</p>
         <br/>
@@ -38,5 +70,25 @@ export default React.createClass({
       </div>
       );
         
-  }
+  },
+
+    // loginAccount (accountobj) {
+    //   $.ajax({
+    //     url: API_URL2,
+    //     type: 'POST',
+    //     data: accountobj,
+    //     success: function () {
+    //       alert('you logged in');
+    //     },
+    //     error: function () {
+    //       alert('you suck at this!');
+    //     }
+    //       })
+    //     },
+
+    //     // let uName = 'maryam123';
+    //     // let pWord = 'jontaesucks123';
+    //     // let aToken = '57382acf28c9e196dca58c62d36a001e';
+
+    // loginAccount({username: uName, password: pWord, access_token: aToken})
 });

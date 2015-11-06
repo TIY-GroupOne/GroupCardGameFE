@@ -1,7 +1,57 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-"use strict";
+'use strict';
 
-},{}],2:[function(require,module,exports){
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+var _underscore = require('underscore');
+
+var _underscore2 = _interopRequireDefault(_underscore);
+
+var _jquery = require('jquery');
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+var API_URL1 = 'http://cardyo.herokuapp.com/signup';
+var API_URL2 = 'http://cardyo.herokuapp.com/login';
+
+function createAccount(accountobj) {
+  _jquery2['default'].ajax({
+    url: API_URL1,
+    type: 'POST',
+    data: accountobj
+  }).then(function (data) {
+    console.log(data);
+  });
+}
+
+// createAccount({username: "maryam123", password: "jontaesucks123", email: "maryam123@gmail.com"});
+
+// function loginAccount(accountobj) {
+//   $.ajax({
+//     url: API_URL2,
+//     type: 'POST',
+//     data: accountobj,
+//     success: function () {
+//       alert('you logged in');
+//     },
+//     error: function () {
+//       alert('you suck at this!');
+//     }
+//   })
+// }
+
+// let uName = 'maryam123';
+// let pWord = 'jontaesucks123';
+// let aToken = '57382acf28c9e196dca58c62d36a001e'
+
+// loginAccount({username: uName, password: pWord, access_token: aToken});
+
+// user: Object
+// access_token: "57382acf28c9e196dca58c62d36a001e"
+// email: "maryam123@gmail.com"
+// username: "maryam123"
+
+},{"jquery":17,"underscore":176}],2:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -24,11 +74,15 @@ var _jsCookie = require('js-cookie');
 
 var _jsCookie2 = _interopRequireDefault(_jsCookie);
 
+var _jquery = require('jquery');
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
 new _router2['default']().start();
 
 console.log('Hello, World');
 
-},{"./ajaxSetup":1,"./router":3,"js-cookie":18,"react":175,"react-dom":19}],3:[function(require,module,exports){
+},{"./ajaxSetup":1,"./router":3,"jquery":17,"js-cookie":18,"react":175,"react-dom":19}],3:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -534,10 +588,43 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _jquery = require('jquery');
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
 // import any linked views
+
+var API_URL2 = 'http://cardyo.herokuapp.com/login';
 
 exports['default'] = _react2['default'].createClass({
   displayName: 'home',
+
+  saveandContinue: function saveandContinue(e) {
+    e.preventDefault();
+
+    // Get values via this.refs
+    var data = {
+      username: this.refs.username.value,
+      password: this.refs.password.value,
+      access_token: '57382acf28c9e196dca58c62d36a001e'
+    };
+
+    var loginAccount = function loginAccount(accountobj) {
+      _jquery2['default'].ajax({
+        url: API_URL2,
+        type: 'POST',
+        data: accountobj,
+        success: function success() {
+          alert('you logged in');
+        },
+        error: function error() {
+          alert('you suck at this!');
+        }
+      });
+    };
+    loginAccount(data);
+    console.log(data);
+  },
 
   spinClickHandler: function spinClickHandler() {
     return this.props.onSpinClick();
@@ -558,13 +645,13 @@ exports['default'] = _react2['default'].createClass({
       _react2['default'].createElement(
         'form',
         null,
-        _react2['default'].createElement('input', { text: 'username', type: 'username' }),
+        _react2['default'].createElement('input', { ref: 'username', type: 'username' }),
         _react2['default'].createElement('br', null),
-        _react2['default'].createElement('input', { text: 'password', type: 'password' })
+        _react2['default'].createElement('input', { ref: 'password', type: 'password' })
       ),
       _react2['default'].createElement(
         'button',
-        { onClick: this.logInClickHandler },
+        { onClick: this.saveandContinue },
         'Log In'
       ),
       _react2['default'].createElement('br', null),
@@ -602,10 +689,30 @@ exports['default'] = _react2['default'].createClass({
       )
     );
   }
+
 });
 module.exports = exports['default'];
+// loginAccount (accountobj) {
+//   $.ajax({
+//     url: API_URL2,
+//     type: 'POST',
+//     data: accountobj,
+//     success: function () {
+//       alert('you logged in');
+//     },
+//     error: function () {
+//       alert('you suck at this!');
+//     }
+//       })
+//     },
 
-},{"react":175}],10:[function(require,module,exports){
+//     // let uName = 'maryam123';
+//     // let pWord = 'jontaesucks123';
+//     // let aToken = '57382acf28c9e196dca58c62d36a001e';
+
+// loginAccount({username: uName, password: pWord, access_token: aToken})
+
+},{"jquery":17,"react":175}],10:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -32676,7 +32783,9 @@ module.exports = warning;
 
 module.exports = require('./lib/React');
 
-},{"./lib/React":43}]},{},[2])
+},{"./lib/React":43}],176:[function(require,module,exports){
+arguments[4][15][0].apply(exports,arguments)
+},{"dup":15}]},{},[2])
 
 
 //# sourceMappingURL=main.js.map
