@@ -7,24 +7,23 @@ const API_URL2 = 'http://cardyo.herokuapp.com/login';
 
 export default React.createClass({
 
-  saveandContinue (e) {
+  loginandContinue (e) {
     e.preventDefault()
  
     // Get values via this.refs
     var data = {
       username : this.refs.username.value,
       password : this.refs.password.value,
-      access_token : '57382acf28c9e196dca58c62d36a001e'
+      access_token : ''
     };
 
-    var loginAccount = function(accountobj) {
+    var loginAccount = (accountobj) => {
     $.ajax({
         url: API_URL2,
         type: 'POST',
         data: accountobj,
-        success: function () {
-          alert('you logged in');
-        
+        success: () => {
+          this.logInClickHandler();
         },
         error: function () {
           alert('you suck at this!');
@@ -56,7 +55,7 @@ export default React.createClass({
           <br/>
           <input ref="password" type="password"/>
         </form>
-        <button onClick ={this.saveandContinue}>Log In</button>
+        <button onClick ={this.loginandContinue}>Log In</button>
         <br/>
         <p>First visit to Cardyo?</p>
         <br/>

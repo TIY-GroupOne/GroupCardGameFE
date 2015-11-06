@@ -599,14 +599,16 @@ var API_URL2 = 'http://cardyo.herokuapp.com/login';
 exports['default'] = _react2['default'].createClass({
   displayName: 'home',
 
-  saveandContinue: function saveandContinue(e) {
+  loginandContinue: function loginandContinue(e) {
+    var _this = this;
+
     e.preventDefault();
 
     // Get values via this.refs
     var data = {
       username: this.refs.username.value,
       password: this.refs.password.value,
-      access_token: '57382acf28c9e196dca58c62d36a001e'
+      access_token: ''
     };
 
     var loginAccount = function loginAccount(accountobj) {
@@ -615,7 +617,7 @@ exports['default'] = _react2['default'].createClass({
         type: 'POST',
         data: accountobj,
         success: function success() {
-          alert('you logged in');
+          _this.logInClickHandler();
         },
         error: function error() {
           alert('you suck at this!');
@@ -651,7 +653,7 @@ exports['default'] = _react2['default'].createClass({
       ),
       _react2['default'].createElement(
         'button',
-        { onClick: this.saveandContinue },
+        { onClick: this.loginandContinue },
         'Log In'
       ),
       _react2['default'].createElement('br', null),
@@ -835,10 +837,35 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _jquery = require('jquery');
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
 //import any linked views
+
+var API_URL1 = 'http://cardyo.herokuapp.com/signup';
 
 exports['default'] = _react2['default'].createClass({
   displayName: 'signUpForm',
+
+  createNewAccount: function createNewAccount(e) {
+    var _this = this;
+
+    e.preventDefault();
+    var accountobj = {
+      username: this.refs.username.value,
+      password: this.refs.password.value,
+      email: this.refs.email.value
+    };
+    _jquery2['default'].ajax({
+      url: API_URL1,
+      type: 'POST',
+      data: accountobj
+    }).then(function (data) {
+      _this.signUpClickHandler();
+      console.log(data);
+    });
+  },
 
   spinClickHandler: function spinClickHandler() {
     return this.props.onSpinClick();
@@ -860,15 +887,15 @@ exports['default'] = _react2['default'].createClass({
       _react2['default'].createElement(
         'form',
         null,
-        _react2['default'].createElement('input', { text: 'username', type: 'username' }),
+        _react2['default'].createElement('input', { ref: 'username', type: 'username' }),
         _react2['default'].createElement('br', null),
-        _react2['default'].createElement('input', { text: 'password', type: 'password' }),
+        _react2['default'].createElement('input', { ref: 'password', type: 'password' }),
         _react2['default'].createElement('br', null),
-        _react2['default'].createElement('input', { text: 'email', type: 'email' })
+        _react2['default'].createElement('input', { ref: 'email', type: 'email' })
       ),
       _react2['default'].createElement(
         'button',
-        { onClick: this.signUpClickHandler },
+        { onClick: this.createNewAccount },
         'Sign Up'
       )
     );
@@ -877,7 +904,7 @@ exports['default'] = _react2['default'].createClass({
 });
 module.exports = exports['default'];
 
-},{"react":175}],13:[function(require,module,exports){
+},{"jquery":17,"react":175}],13:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
