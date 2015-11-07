@@ -63,3 +63,22 @@ p {
   width: 50%;
   color: white;
 }
+
+// Dashboard
+
+.dashboard {
+  @include outer-container;
+  background: white;
+}
+
+.gamecards {
+  @include span-columns(4);
+  @include omega(8n);
+  width: 80px;
+  height: 90px;
+  border: 1px solid red;
+  margin-top: 5px;
+}
+.signoutbut {
+  width: 20%;
+}

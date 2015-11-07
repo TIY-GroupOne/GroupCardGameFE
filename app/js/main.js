@@ -692,13 +692,13 @@ module.exports = exports['default'];
 // loginAccount({username: uName, password: pWord, access_token: aToken})
 
 },{"jquery":16,"react":174}],10:[function(require,module,exports){
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, '__esModule', {
+Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 var _react = require('react');
 
@@ -706,8 +706,8 @@ var _react2 = _interopRequireDefault(_react);
 
 // import HomeViewComponent from '.home';
 
-exports['default'] = _react2['default'].createClass({
-  displayName: 'mainGame',
+exports["default"] = _react2["default"].createClass({
+  displayName: "mainGame",
 
   spinClickHandler: function spinClickHandler() {
     return this.props.onSpinClick();
@@ -718,29 +718,63 @@ exports['default'] = _react2['default'].createClass({
   },
 
   render: function render() {
-    return _react2['default'].createElement(
-      'div',
+    return _react2["default"].createElement(
+      "div",
       null,
-      _react2['default'].createElement(
-        'div',
-        null,
-        'Game'
+      _react2["default"].createElement(
+        "div",
+        { className: "dashboard" },
+        _react2["default"].createElement(
+          "div",
+          { className: "gamecards" },
+          "1"
+        ),
+        _react2["default"].createElement(
+          "div",
+          { className: "gamecards" },
+          "2"
+        ),
+        _react2["default"].createElement(
+          "div",
+          { className: "gamecards" },
+          "3"
+        ),
+        _react2["default"].createElement(
+          "div",
+          { className: "gamecards" },
+          "4"
+        ),
+        _react2["default"].createElement(
+          "div",
+          { className: "gamecards" },
+          "5"
+        ),
+        _react2["default"].createElement(
+          "div",
+          { className: "gamecards" },
+          "6"
+        ),
+        _react2["default"].createElement(
+          "div",
+          { className: "gamecards" },
+          "7"
+        ),
+        _react2["default"].createElement(
+          "div",
+          { className: "gamecards" },
+          "8"
+        )
       ),
-      _react2['default'].createElement(
-        'div',
-        null,
-        'Log In Form'
-      ),
-      _react2['default'].createElement(
-        'button',
-        { onClick: this.signOutClickHandler },
-        'Sign Out'
+      _react2["default"].createElement(
+        "button",
+        { className: "signoutbut", onClick: this.signOutClickHandler },
+        "Sign Out"
       )
     );
     console.log('main game view');
   }
 });
-module.exports = exports['default'];
+module.exports = exports["default"];
 
 },{"react":174}],11:[function(require,module,exports){
 'use strict';
