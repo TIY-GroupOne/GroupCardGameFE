@@ -645,49 +645,26 @@ exports['default'] = _react2['default'].createClass({
       'div',
       { className: 'tabContainer' },
       _react2['default'].createElement(
-        'form',
-        null,
-        _react2['default'].createElement('input', { ref: 'username', type: 'username' }),
+        'div',
+        { className: 'insideLogin' },
+        _react2['default'].createElement(
+          'form',
+          null,
+          _react2['default'].createElement('input', { ref: 'username', type: 'username', placeholder: 'Username' }),
+          _react2['default'].createElement('br', null),
+          _react2['default'].createElement('input', { ref: 'password', type: 'password', placeholder: 'Password' })
+        ),
+        _react2['default'].createElement(
+          'button',
+          { onClick: this.loginandContinue },
+          'Log In'
+        ),
         _react2['default'].createElement('br', null),
-        _react2['default'].createElement('input', { ref: 'password', type: 'password' })
-      ),
-      _react2['default'].createElement(
-        'button',
-        { onClick: this.loginandContinue },
-        'Log In'
-      ),
-      _react2['default'].createElement('br', null),
-      _react2['default'].createElement(
-        'p',
-        null,
-        'First visit to Cardyo?'
-      ),
-      _react2['default'].createElement('br', null),
-      _react2['default'].createElement(
-        'button',
-        { onClick: this.signUpClickHandler },
-        'Sign Up'
-      ),
-      _react2['default'].createElement('br', null),
-      _react2['default'].createElement(
-        'p',
-        null,
-        ' Welcome to Cardyo!',
-        _react2['default'].createElement('br', null),
-        'Sign in or make an account',
-        _react2['default'].createElement('br', null),
-        'Pick a card deck',
-        _react2['default'].createElement('br', null),
-        'OR',
-        _react2['default'].createElement('br', null),
-        'Make a new deck',
-        _react2['default'].createElement('br', null),
-        'Race against the clock to set a new high score',
-        _react2['default'].createElement('br', null),
-        'If you quit the game, your progress will not be saved',
-        _react2['default'].createElement('br', null),
-        'Ready? Here we go!',
-        _react2['default'].createElement('br', null)
+        _react2['default'].createElement(
+          'button',
+          { onClick: this.signUpClickHandler },
+          'SignUp'
+        )
       )
     );
   }

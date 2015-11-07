@@ -3,5 +3,63 @@
 @import "font-awesome";
 
 body {
-  background: #e2ebf3;
+  background-size: cover;
+  background-image: url(http://365psd.com/images/premium/thumbs/189/man-runner-silhouette-vector-background-template-concept-made-of-stripes-844667.jpg);
+}
+
+.app {
+  @include outer-container;
+}
+
+input {
+  width: 190%;
+  height: 50px;
+  border-radius: 6px;
+  border: none;
+  margin-top: 3px;
+  margin-left: 8%;
+}
+
+button {
+  color: #000080;
+  width: 92%;
+  height: 50px;
+  background-color: #ADD8E6;
+  border: none;
+  border-radius: 6px;
+  margin-top: 3px;
+  margin-left: 4%;
+  &:hover {
+    background-color: yellow;
+    color: black;
+  }
+}
+
+.tabContainer {
+  @include span-columns(6);
+  @include shift(3);
+  background-color: #000080;
+  height: 400px;
+  border-radius: 6px;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+}
+
+.insideLogin {
+  margin-top: 15%;
+
+}
+
+form {
+  @include span-columns(6);
+  margin-top: 20px;
+}
+
+p {
+  text-align: center;
+  width: 50%;
+  color: white;
 }

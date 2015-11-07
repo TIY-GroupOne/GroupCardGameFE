@@ -9,7 +9,7 @@ export default React.createClass({
 
   loginandContinue (e) {
     e.preventDefault()
- 
+
     // Get values via this.refs
     var data = {
       username : this.refs.username.value,
@@ -28,8 +28,8 @@ export default React.createClass({
         error: function () {
           alert('you suck at this!');
         }
-        })
-        };
+      })
+    };
       loginAccount(data);
       console.log(data);
 
@@ -37,38 +37,32 @@ export default React.createClass({
 
   spinClickHandler () {
     return this.props.onSpinClick();
-  }, 
-  
+  },
+
   logInClickHandler () {
     return this.props.onLogInClick();
   },
 
   signUpClickHandler () {
      return this.props.onSignUpClick();
-  }, 
+  },
 
   render() {
     return (
       <div className='tabContainer'>
+        <div className='insideLogin'>
         <form>
-          <input ref="username" type="username"/>
+          <input ref="username" type="username" placeholder="Username"/>
           <br/>
-          <input ref="password" type="password"/>
+          <input ref="password" type="password" placeholder="Password"/>
         </form>
         <button onClick ={this.loginandContinue}>Log In</button>
         <br/>
-        <p>First visit to Cardyo?</p>
-        <br/>
-        <button onClick ={this.signUpClickHandler}>Sign Up</button>
-        <br/>
-        <p> Welcome to Cardyo!<br/>Sign in or make an account<br/>
-        Pick a card deck<br/>OR<br/>Make a new deck<br/>
-        Race against the clock to set a new high score<br/>
-        If you quit the game, your progress will not be saved<br/>
-        Ready? Here we go!<br/></p>
+        <button onClick ={this.signUpClickHandler}>SignUp</button>
+        </div>
       </div>
       );
-        
+
   },
 
     // loginAccount (accountobj) {
