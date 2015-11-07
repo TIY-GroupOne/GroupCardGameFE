@@ -692,22 +692,45 @@ module.exports = exports['default'];
 // loginAccount({username: uName, password: pWord, access_token: aToken})
 
 },{"jquery":16,"react":174}],10:[function(require,module,exports){
-"use strict";
+'use strict';
 
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true
 });
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-// import HomeViewComponent from '.home';
+var _jquery = require('jquery');
 
-exports["default"] = _react2["default"].createClass({
-  displayName: "mainGame",
+var _jquery2 = _interopRequireDefault(_jquery);
+
+// import HomeViewComponent from '.home';
+var API_URL3 = 'http://cardyo.herokuapp.com/index';
+
+exports['default'] = _react2['default'].createClass({
+  displayName: 'mainGame',
+
+  getCurrentDecks: function getCurrentDecks(e) {
+    var _this = this;
+
+    e.preventDefault();
+    var accountobj = {
+      user_id: null,
+      title: null
+    };
+    _jquery2['default'].ajax({
+      url: API_URL3,
+      type: 'GET',
+      data: accountobj
+    }).then(function (data) {
+      _this.carddata = data;
+      console.log(_this.carddata);
+    });
+  },
 
   spinClickHandler: function spinClickHandler() {
     return this.props.onSpinClick();
@@ -718,65 +741,65 @@ exports["default"] = _react2["default"].createClass({
   },
 
   render: function render() {
-    return _react2["default"].createElement(
-      "div",
+    return _react2['default'].createElement(
+      'div',
       null,
-      _react2["default"].createElement(
-        "div",
-        { className: "dashboard" },
-        _react2["default"].createElement(
-          "div",
-          { className: "gamecards" },
-          "1"
+      _react2['default'].createElement(
+        'div',
+        { className: 'dashboard' },
+        _react2['default'].createElement(
+          'div',
+          { className: 'gamecards' },
+          '1'
         ),
-        _react2["default"].createElement(
-          "div",
-          { className: "gamecards" },
-          "2"
+        _react2['default'].createElement(
+          'div',
+          { className: 'gamecards' },
+          '2'
         ),
-        _react2["default"].createElement(
-          "div",
-          { className: "gamecards" },
-          "3"
+        _react2['default'].createElement(
+          'div',
+          { className: 'gamecards' },
+          '3'
         ),
-        _react2["default"].createElement(
-          "div",
-          { className: "gamecards" },
-          "4"
+        _react2['default'].createElement(
+          'div',
+          { className: 'gamecards' },
+          '4'
         ),
-        _react2["default"].createElement(
-          "div",
-          { className: "gamecards" },
-          "5"
+        _react2['default'].createElement(
+          'div',
+          { className: 'gamecards' },
+          '5'
         ),
-        _react2["default"].createElement(
-          "div",
-          { className: "gamecards" },
-          "6"
+        _react2['default'].createElement(
+          'div',
+          { className: 'gamecards' },
+          '6'
         ),
-        _react2["default"].createElement(
-          "div",
-          { className: "gamecards" },
-          "7"
+        _react2['default'].createElement(
+          'div',
+          { className: 'gamecards' },
+          '7'
         ),
-        _react2["default"].createElement(
-          "div",
-          { className: "gamecards" },
-          "8"
+        _react2['default'].createElement(
+          'div',
+          { className: 'gamecards' },
+          '8'
         )
       ),
-      _react2["default"].createElement(
-        "button",
-        { className: "signoutbut", onClick: this.signOutClickHandler },
-        "Sign Out"
+      _react2['default'].createElement(
+        'button',
+        { className: 'signoutbut', onClick: this.getCurrentDecks },
+        'Get Decks'
       )
     );
     console.log('main game view');
   }
 });
-module.exports = exports["default"];
+module.exports = exports['default'];
 
-},{"react":174}],11:[function(require,module,exports){
+},{"jquery":16,"react":174}],11:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
