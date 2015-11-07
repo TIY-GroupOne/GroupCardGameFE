@@ -3,12 +3,11 @@ import ReactDom from 'react-dom';
 import Router from './router';
 import './ajaxSetup';
 import Cookies from 'js-cookie';
+import $ from 'jquery';
 
 
-let element = document.querySelector('.app');
-var router= new Router(element);
-router.start();
+new Router().start();
 
-window.router=router;
+
 
 console.log('Hello, World');
