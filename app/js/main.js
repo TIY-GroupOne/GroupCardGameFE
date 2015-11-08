@@ -12635,6 +12635,7 @@ var AppBar = React.createClass({
 });
 
 module.exports = AppBar;
+
 }).call(this,require('_process'))
 
 },{"./icon-button":53,"./mixins/style-propable":72,"./paper":76,"./styles/raw-themes/light-raw-theme":92,"./styles/theme-manager":95,"./styles/typography":97,"./svg-icons/navigation/menu":105,"_process":15,"react":330}],19:[function(require,module,exports){
