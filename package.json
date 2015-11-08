@@ -24,6 +24,7 @@
     "gulp-uglify": "^1.4.2",
     "jshint-jsx": "^0.4.1",
     "jshint-stylish": "^2.0.1",
+    "less": "^2.5.3",
     "mocha": "^2.3.3",
     "node-bourbon": "^4.2.3",
     "node-font-awesome": "^1.0.2",
@@ -39,7 +40,11 @@
     "gulp": "^3.9.0",
     "jquery": "^2.1.4",
     "js-cookie": "^2.0.4",
+<<<<<<< HEAD
+    "less": "^2.5.3",
+=======
     "material-ui": "^0.13.1",
+>>>>>>> d130b0c68c68e0d98d2928e641d5ce8f7b37e4bf
     "moment": "^2.10.6",
     "normalize.css": "^3.0.3",
     "react": "^0.14.2",

@@ -53,7 +53,7 @@ export default React.createClass({
       </div>
 
       );
-       console.log('main game view');
+
   }
 });
 // var getcurrentDecks =
