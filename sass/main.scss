@@ -71,6 +71,10 @@ p {
   background: white;
 }
 
+.recentDecks {
+  color: blue;
+}
+
 .gamecards {
   @include span-columns(4);
   @include omega(8n);
