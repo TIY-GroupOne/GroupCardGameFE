@@ -719,16 +719,16 @@ exports['default'] = _react2['default'].createClass({
 
     e.preventDefault();
     var accountobj = {
-      user_id: null,
-      title: null
+      user_id: '',
+      title: ''
     };
     _jquery2['default'].ajax({
       url: API_URL3,
       type: 'GET',
       data: accountobj
     }).then(function (data) {
-      _this.carddata = data;
-      console.log(_this.carddata);
+      _this.deckdata = data.decks;
+      return _this.deckdata;
     });
   },
 
@@ -741,6 +741,7 @@ exports['default'] = _react2['default'].createClass({
   },
 
   render: function render() {
+
     return _react2['default'].createElement(
       'div',
       null,

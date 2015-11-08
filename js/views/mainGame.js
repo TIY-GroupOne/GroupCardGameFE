@@ -8,17 +8,17 @@ export default React.createClass({
   getCurrentDecks (e) {
     e.preventDefault()
     var accountobj = {
-      user_id : null,
-      title : null,
+      user_id : '',
+      title : '',
     };
     $.ajax({
     url: API_URL3,
     type: 'GET',
     data: accountobj
   }).then( (data) => {
-    this.carddata = data;
-    console.log(this.carddata);
-  })
+    this.deckdata = data.decks;
+    return this.deckdata;
+    });
   },
 
   spinClickHandler () {
@@ -31,6 +31,7 @@ export default React.createClass({
 
 
    render() {
+
     return (
       <div>
         <div className="dashboard">
