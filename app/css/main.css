@@ -2029,6 +2029,7 @@ body {
   background-image: url(http://365psd.com/images/premium/thumbs/189/man-runner-silhouette-vector-background-template-concept-made-of-stripes-844667.jpg); }
 
 .app {
+  margin-top: 30px;
   max-width: 68em;
   margin-left: auto;
   margin-right: auto; }
@@ -2064,7 +2065,7 @@ button {
   margin-right: 2.35765%;
   width: 48.82117%;
   margin-left: 25.58941%;
-  background-color: #000080;
+  background-color: #4BB8D1;
   height: 400px;
   border-radius: 6px; }
   .tabContainer:last-child {
@@ -2095,21 +2096,32 @@ p {
   max-width: 68em;
   margin-left: auto;
   margin-right: auto;
-  background: white; }
+  background: #4BB8D1; }
   .dashboard::after {
     clear: both;
     content: "";
     display: table; }
+
+.recentDecks {
+  color: white; }
+
+.decktitles {
+  font-family: monospace;
+  font-size: 25px;
+  color: blue;
+  text-align: center; }
 
 .gamecards {
   float: left;
   display: block;
   margin-right: 2.35765%;
   width: 31.76157%;
-  width: 80px;
-  height: 90px;
-  border: 1px solid red;
-  margin-top: 5px; }
+  width: 150px;
+  height: 200px;
+  border: 1px solid #3E8ACC;
+  margin: 10% 2%;
+  border-radius: 6px;
+  background: black; }
   .gamecards:last-child {
     margin-right: 0; }
   .gamecards:nth-child(8n) {
