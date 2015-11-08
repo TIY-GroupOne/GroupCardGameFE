@@ -40,11 +40,15 @@
     "gulp": "^3.9.0",
     "jquery": "^2.1.4",
     "js-cookie": "^2.0.4",
-    "less": "^2.5.3",
     "moment": "^2.10.6",
     "normalize.css": "^3.0.3",
     "react": "^0.14.2",
+    "react-addons-create-fragment": "^0.14.2",
+    "react-addons-pure-render-mixin": "^0.14.2",
+    "react-addons-transition-group": "^0.14.2",
+    "react-addons-update": "^0.14.2",
     "react-dom": "^0.14.2",
+    "react-tap-event-plugin": "^0.2.1",
     "underscore": "^1.8.3"
   }
 }

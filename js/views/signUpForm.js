@@ -26,25 +26,25 @@ export default React.createClass({
   spinClickHandler () {
     return this.props.onSpinClick();
   },
-  
+
   signUpClickHandler () {
     return this.props.onSignUpClick();
-  }, 
+  },
 
    render() {
     return (
       <div className='signUpForm'>
         <p>Sign Up Form</p>
         <form>
-          <input ref="username" type="username"/>
+          <input ref="username" type="username" placeholder="Username"/>
           <br/>
-          <input ref="password" type="password"/>
+          <input ref="password" type="password" placeholder="Password"/>
           <br/>
-          <input ref="email" type="email"/>
+          <input ref="email" type="email" placeholder="Email"/>
         </form>
         <button onClick ={this.createNewAccount}>Sign Up</button>
       </div>
       );
-    console.log('sign up form view');    
+    console.log('sign up form view');
   }
 });

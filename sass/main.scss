@@ -8,6 +8,7 @@ body {
 }
 
 .app {
+  margin-top: 30px;
   @include outer-container;
 }
 
@@ -38,7 +39,7 @@ button {
 .tabContainer {
   @include span-columns(6);
   @include shift(3);
-  background-color: #000080;
+  background-color: #4BB8D1;
   height: 400px;
   border-radius: 6px;
 }
@@ -68,16 +69,29 @@ p {
 
 .dashboard {
   @include outer-container;
-  background: white;
+  background: #4BB8D1;
+}
+
+.recentDecks {
+  color: white;
+}
+
+.decktitles {
+  font-family: monospace;
+  font-size: 25px;
+  color: blue;
+  text-align: center;
 }
 
 .gamecards {
   @include span-columns(4);
   @include omega(8n);
-  width: 80px;
-  height: 90px;
-  border: 1px solid red;
-  margin-top: 5px;
+  width: 150px;
+  height: 200px;
+  border: 1px solid #3E8ACC;
+  margin: 10% 2%;
+  border-radius: 6px;
+  background: black;
 }
 .signoutbut {
   width: 20%;
