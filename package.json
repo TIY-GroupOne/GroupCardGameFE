@@ -40,11 +40,8 @@
     "gulp": "^3.9.0",
     "jquery": "^2.1.4",
     "js-cookie": "^2.0.4",
-<<<<<<< HEAD
     "less": "^2.5.3",
-=======
     "material-ui": "^0.13.1",
->>>>>>> d130b0c68c68e0d98d2928e641d5ce8f7b37e4bf
     "moment": "^2.10.6",
     "normalize.css": "^3.0.3",
     "react": "^0.14.2",

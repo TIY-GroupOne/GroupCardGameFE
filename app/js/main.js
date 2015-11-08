@@ -847,7 +847,6 @@ exports['default'] = _react2['default'].createClass({
         'SignOut'
       )
     );
-    console.log('main game view');
   }
 });
 
