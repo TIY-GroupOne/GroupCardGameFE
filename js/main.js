@@ -21,7 +21,10 @@ import IconButton from 'material-ui/lib/icon-button';
 import MenuItem from 'material-ui/lib/menu/menu-item';
 import MoreVertIcon from 'material-ui/lib/svg-icons/navigation/more-vert';
 import IconMenu from 'material-ui/lib/menus/icon-menu';
-import NavigationClose from 'material-ui/lib/'
+let Colors = require('material-ui/lib/styles/colors');
+let ColorManipulator = require('material-ui/lib/utils/color-manipulator');
+let Spacing = require('material-ui/lib/styles/spacing');
+
 
 ReactDom.render(
   <AppBar
