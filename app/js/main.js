@@ -260,7 +260,7 @@ exports['default'] = _backbone2['default'].Router.extend({
     // fill in Choose a card deck route
     _react2['default'].createElement(_viewsMainGame2['default'], {
       onSignOutClick: function () {
-        return _this6.goto('goodbye');
+        return _this6.goto('');
       } }), document.querySelector('.app'));
   },
 
@@ -761,8 +761,8 @@ exports['default'] = _react2['default'].createClass({
           'div',
           { className: 'gamecards' },
           _react2['default'].createElement(
-            'span',
-            null,
+            'h3',
+            { className: 'decktitles' },
             this.state.deck1
           )
         ),
@@ -770,8 +770,8 @@ exports['default'] = _react2['default'].createClass({
           'div',
           { className: 'gamecards' },
           _react2['default'].createElement(
-            'span',
-            null,
+            'h3',
+            { className: 'decktitles' },
             this.state.deck2
           )
         ),
@@ -779,8 +779,8 @@ exports['default'] = _react2['default'].createClass({
           'div',
           { className: 'gamecards' },
           _react2['default'].createElement(
-            'span',
-            null,
+            'h3',
+            { className: 'decktitles' },
             this.state.deck3
           )
         ),
@@ -788,8 +788,8 @@ exports['default'] = _react2['default'].createClass({
           'div',
           { className: 'gamecards' },
           _react2['default'].createElement(
-            'span',
-            null,
+            'h3',
+            { className: 'decktitles' },
             this.state.deck4
           )
         ),
@@ -797,15 +797,15 @@ exports['default'] = _react2['default'].createClass({
           'div',
           { className: 'gamecards' },
           _react2['default'].createElement(
-            'span',
-            null,
+            'h3',
+            { className: 'decktitles' },
             this.state.deck5
           )
         )
       ),
       _react2['default'].createElement(
         'button',
-        { className: 'signoutbut', onclick: this.signOutClickHander },
+        { onClick: this.signOutClickHandler },
         'SignOut'
       )
     );

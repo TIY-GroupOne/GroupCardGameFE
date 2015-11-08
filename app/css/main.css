@@ -2104,15 +2104,23 @@ p {
 .recentDecks {
   color: blue; }
 
+.decktitles {
+  font-family: monospace;
+  font-size: 25px;
+  color: blue;
+  text-align: center; }
+
 .gamecards {
   float: left;
   display: block;
   margin-right: 2.35765%;
   width: 31.76157%;
-  width: 80px;
-  height: 90px;
-  border: 1px solid red;
-  margin-top: 5px; }
+  width: 150px;
+  height: 200px;
+  border: 1px solid #3E8ACC;
+  margin: 10% 2%;
+  border-radius: 6px;
+  background: black; }
   .gamecards:last-child {
     margin-right: 0; }
   .gamecards:nth-child(8n) {

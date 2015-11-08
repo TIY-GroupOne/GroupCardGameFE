@@ -114,7 +114,7 @@ render (component) {
        // FIXME
       // fill in Choose a card deck route
       <MainGameComponent
-      onSignOutClick={() => this.goto('goodbye')}/>,
+      onSignOutClick={() => this.goto('')}/>,
       document.querySelector('.app')
     );
   },

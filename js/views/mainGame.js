@@ -43,13 +43,13 @@ export default React.createClass({
       <div>
         <div className="dashboard">
         <h1 className="recentDecks">Most Recent Decks Added</h1>
-        <div className="gamecards"><span>{this.state.deck1}</span></div>
-        <div className="gamecards"><span>{this.state.deck2}</span></div>
-        <div className="gamecards"><span>{this.state.deck3}</span></div>
-        <div className="gamecards"><span>{this.state.deck4}</span></div>
-        <div className="gamecards"><span>{this.state.deck5}</span></div>
+        <div className="gamecards"><h3 className="decktitles">{this.state.deck1}</h3></div>
+        <div className="gamecards"><h3 className="decktitles">{this.state.deck2}</h3></div>
+        <div className="gamecards"><h3 className="decktitles">{this.state.deck3}</h3></div>
+        <div className="gamecards"><h3 className="decktitles">{this.state.deck4}</h3></div>
+        <div className="gamecards"><h3 className="decktitles">{this.state.deck5}</h3></div>
         </div>
-        <button className="signoutbut" onclick={this.signOutClickHander}>SignOut</button>
+        <button onClick ={this.signOutClickHandler}>SignOut</button>
       </div>
 
       );
