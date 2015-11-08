@@ -71,13 +71,26 @@ p {
   background: white;
 }
 
+.recentDecks {
+  color: blue;
+}
+
+.decktitles {
+  font-family: monospace;
+  font-size: 25px;
+  color: blue;
+  text-align: center;
+}
+
 .gamecards {
   @include span-columns(4);
   @include omega(8n);
-  width: 80px;
-  height: 90px;
-  border: 1px solid red;
-  margin-top: 5px;
+  width: 150px;
+  height: 200px;
+  border: 1px solid #3E8ACC;
+  margin: 10% 2%;
+  border-radius: 6px;
+  background: black;
 }
 .signoutbut {
   width: 20%;

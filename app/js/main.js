@@ -203,8 +203,8 @@ exports['default'] = _backbone2['default'].Router.extend({
     var _this2 = this;
 
     _reactDom2['default'].render(_react2['default'].createElement(_viewsGame2['default'], {
-      onChooseADeckClick: function () {
-        return _this2.goto('chooseDeck');
+      onSignOutClick: function () {
+        return _this2.goto('');
       },
       onCreateANewDeckClick: function () {
         return _this2.goto('createDeck');
@@ -257,10 +257,10 @@ exports['default'] = _backbone2['default'].Router.extend({
     _reactDom2['default'].render(
     // choosen card deck goes here
     // FIXME
-    // fill in Choose a card deck route     
+    // fill in Choose a card deck route
     _react2['default'].createElement(_viewsMainGame2['default'], {
       onSignOutClick: function () {
-        return _this6.goto('goodbye');
+        return _this6.goto('');
       } }), document.querySelector('.app'));
   },
 
@@ -289,7 +289,7 @@ exports['default'] = _backbone2['default'].Router.extend({
     // choosen card deck goes here
     // FIXME
     // text for goodbye page
-    // do we want a return to game page      
+    // do we want a return to game page
     _react2['default'].createElement(_viewsGoodbye2['default'], {
       onReturnClick: function () {
         return _this8.goto('mainGame');
@@ -302,7 +302,7 @@ exports['default'] = _backbone2['default'].Router.extend({
     _reactDom2['default'].render(
     // choosen card deck goes here
     // FIXME
-    // fill in Choose a card deck route     
+    // fill in Choose a card deck route
     _react2['default'].createElement(_viewsSignUpForm2['default'], {
       onSignUpClick: function () {
         return _this9.goto('');
@@ -714,22 +714,26 @@ var API_URL3 = 'http://cardyo.herokuapp.com/index';
 exports['default'] = _react2['default'].createClass({
   displayName: 'mainGame',
 
-  getCurrentDecks: function getCurrentDecks(e) {
-    var _this = this;
-
-    e.preventDefault();
-    var accountobj = {
-      user_id: null,
-      title: null
+  getInitialState: function getInitialState() {
+    return {
+      decks: ''
     };
-    _jquery2['default'].ajax({
-      url: API_URL3,
-      type: 'GET',
-      data: accountobj
-    }).then(function (data) {
-      _this.carddata = data;
-      console.log(_this.carddata);
-    });
+  },
+
+  componentDidMount: function componentDidMount() {
+    _jquery2['default'].get('http://cardyo.herokuapp.com/index', (function (results) {
+      var deckTitles = results.decks;
+      console.log(deckTitles);
+      if (this.isMounted()) {
+        this.setState({
+          deck1: deckTitles[0].title,
+          deck2: deckTitles[1].title,
+          deck3: deckTitles[2].title,
+          deck4: deckTitles[3].title,
+          deck5: deckTitles[4].title
+        });
+      }
+    }).bind(this));
   },
 
   spinClickHandler: function spinClickHandler() {
@@ -741,6 +745,7 @@ exports['default'] = _react2['default'].createClass({
   },
 
   render: function render() {
+
     return _react2['default'].createElement(
       'div',
       null,
@@ -748,55 +753,76 @@ exports['default'] = _react2['default'].createClass({
         'div',
         { className: 'dashboard' },
         _react2['default'].createElement(
-          'div',
-          { className: 'gamecards' },
-          '1'
+          'h1',
+          { className: 'recentDecks' },
+          'Most Recent Decks Added'
         ),
         _react2['default'].createElement(
           'div',
           { className: 'gamecards' },
-          '2'
+          _react2['default'].createElement(
+            'h3',
+            { className: 'decktitles' },
+            this.state.deck1
+          )
         ),
         _react2['default'].createElement(
           'div',
           { className: 'gamecards' },
-          '3'
+          _react2['default'].createElement(
+            'h3',
+            { className: 'decktitles' },
+            this.state.deck2
+          )
         ),
         _react2['default'].createElement(
           'div',
           { className: 'gamecards' },
-          '4'
+          _react2['default'].createElement(
+            'h3',
+            { className: 'decktitles' },
+            this.state.deck3
+          )
         ),
         _react2['default'].createElement(
           'div',
           { className: 'gamecards' },
-          '5'
+          _react2['default'].createElement(
+            'h3',
+            { className: 'decktitles' },
+            this.state.deck4
+          )
         ),
         _react2['default'].createElement(
           'div',
           { className: 'gamecards' },
-          '6'
-        ),
-        _react2['default'].createElement(
-          'div',
-          { className: 'gamecards' },
-          '7'
-        ),
-        _react2['default'].createElement(
-          'div',
-          { className: 'gamecards' },
-          '8'
+          _react2['default'].createElement(
+            'h3',
+            { className: 'decktitles' },
+            this.state.deck5
+          )
         )
       ),
       _react2['default'].createElement(
         'button',
-        { className: 'signoutbut', onClick: this.getCurrentDecks },
-        'Get Decks'
+        { onClick: this.signOutClickHandler },
+        'SignOut'
       )
     );
     console.log('main game view');
   }
 });
+
+// var getcurrentDecks =
+//     $.ajax({
+//     url: API_URL3,
+//     type: 'GET',
+//     data: '',
+//     success: (data) => {
+//       console.log(data.decks);
+//       decks = data.decks;
+//     },
+//   });
 module.exports = exports['default'];
 
 },{"jquery":16,"react":174}],11:[function(require,module,exports){
