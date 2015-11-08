@@ -5,13 +5,15 @@ import $ from 'jquery';
 import Cookies from 'js-cookie';
 
 import HomeComponent from './views/home';
-// import GameComponent from './views/gameView';
-// import ChooseADeckComponent from './views/chooseADeck';
-// import CurrentDeckComponent from './views/currentDeck';
-// import CreateDeckComponent from './views/createDeck';
-// import MainGameComponent from './views/mainGame';
-// import SignOutComponent from './views/signOut';
-// import SpinnerComponent from './views/spinner';
+import GameComponent from './views/game';
+import ChooseADeckComponent from './views/chooseDeck';
+import CurrentDeckComponent from './views/currentDecks';
+import CreateDeckComponent from './views/createANewDeck';
+import MainGameComponent from './views/mainGame';
+import SignOutComponent from './views/signOut';
+import SpinnerComponent from './views/spinner';
+import SignUpFormComponent from './views/signUpForm';
+import GoodByeComponent from './views/goodbye';
 
 
 
@@ -24,12 +26,13 @@ export default Backbone.Router.extend({
    // first view has log-in, sign-up and rules
     ""             : "showHomeView",
     "game"         : "showGameView",
+    "signupForm"   : "showSignUpFormView",
     "chooseDeck"   : "showChooseADeckView",
     "currentDecks" : "showCurrentDecksView",
     "createDeck"   : "showCreateANewDeckView",
     "mainGame"     : "showMainGameView",
     "signOut"      : "showSignOutView",
-    "goodBye"      : "showGoodByeView"
+    "goodbye"      : "showGoodByeView"
 
   },
 
@@ -57,95 +60,104 @@ render (component) {
           //'About Game' goes here
           //"START" button goes here, directs to GameView below
       <HomeComponent
-      onLogInClick={()=> this.goto('mainGameView')}   
-      onSignInClickClick={() => this.goto('createANewDeckView')}/>,
+      onLogInClick={()=> this.goto('mainGame')}
+      onSignUpClick={() => this.goto('signupForm')}/>,
       document.querySelector('.app')
-        );
+      );
   },
 
   showGameView() {
     ReactDom.render(
-
-      
-      <GameComponent   
-      onChooseADeckClick={() => this.goto('chooseADeckView')}
-      onCreateANewDeckClick={() => this.goto('createANewDeckView')}/>,
+      <GameComponent
+      onSignOutClick={() => this.goto('')}
+      onCreateANewDeckClick={() => this.goto('createDeck')}/>,
       document.querySelector('.app')
         );
   },
 
-  showChooseADeck() {
+  showChooseADeckView() {
     ReactDom.render(
-      
+
       //FIXME
       // preset card-containing divs go here
       // AFTER deck is choosen, return to main game view
-      <ChooseComponent
-      onCreateANewDeckClick={() => this.goto('createANewDeckView')}/>, 
+      <ChooseADeckComponent
+      onCreateDeckClick={() => this.goto('createDeck')}/>,
       document.querySelector('.app')
     );
-  },  
+  },
 
-  showCurrentDecks() {
+  showCurrentDecksView() {
     ReactDom.render(
       // preset card-containing divs go here
-      
+
       //FIXME
-      //needs a button to return to 
-      <CurrentComponent
-      onPlayClick={()=> this.goto('mainGameView')}   
-      onCreateANewDeckClick={() => this.goto('createANewDeckView')}/>,
-      document.querySelector('.app') 
+      //needs a button to return to
+      <CurrentDecksComponent
+      onPlayClick={()=> this.goto('mainGameView')}
+      onCreateDeckClick={() => this.goto('createDeck')}/>,
+      document.querySelector('.app')
     );
-  },  
+  },
 
   showCreateANewDeckView() {
     ReactDom.render(
-      <CreateComponent  
-      onDeckCompleteClick={() => this.goto ('mainGameView')}/>,
-      document.querySelector('.app') 
+      <CreateDeckComponent
+      onDeckCompleteClick={() => this.goto ('mainGame')}/>,
+      document.querySelector('.app')
     );
   },
 
   showMainGameView() {
     ReactDom.render(
       // choosen card deck goes here
-       // FIXME 
-      // fill in Choose a card deck route      
+       // FIXME
+      // fill in Choose a card deck route
       <MainGameComponent
-      onSignOutClick={() => this.goto('goodByeView')}/>, 
+      onSignOutClick={() => this.goto('')}/>,
       document.querySelector('.app')
     );
-  }, 
-  
+  },
+
   showSignOutView() {
     ReactDom.render(
       // FIXME
       // sign out/delete profile buttons go here
       <SignOutComponent
-      onReturnClick={() => this.goto('mainGameView')}
-      onSignOutClick={() => this.goto('goodbyeView')}   
-      onDeleteClick={() => this.goto('goodyeView')}/>,
+      onReturnClick={() => this.goto('mainGame')}
+      onSignOutClick={() => this.goto('goodbye')}
+      onDeleteClick={() => this.goto('goodbye')}/>,
       document.querySelector('.app')
     );
   },
 
-  showGoodbyeView() {
+  showGoodByeView() {
     ReactDom.render(
       // choosen card deck goes here
-      // FIXME 
-      // text for goodbye page 
-      // do we want a return to game page       
+      // FIXME
+      // text for goodbye page
+      // do we want a return to game page
       <GoodByeComponent
-      onClick={() => this.goto('')}/>,
+      onReturnClick={() => this.goto('mainGame')}/>,
       document.querySelector('.app')
     );
-  },  
+  },
 
-  // showSpinner () {
-  //   ReactDom.render(<SpinnerComponent/>);
-  // },
-  
+   showSignUpFormView() {
+    ReactDom.render(
+      // choosen card deck goes here
+       // FIXME
+      // fill in Choose a card deck route
+      <SignUpFormComponent
+      onSignUpClick={() => this.goto('')}/>,
+      document.querySelector('.app')
+    );
+  },
+
+  showSpinner () {
+    ReactDom.render(<SpinnerComponent/>);
+  },
+
 
 start: function (){
     Backbone.history.start();
