@@ -73,7 +73,6 @@ p {
 
 .dashboard {
   @include outer-container;
-  background: #4BB8D1;
   border-radius: 6px;
   margin-bottom: 20px;
 
@@ -83,11 +82,11 @@ p {
   width: 100px;
   height: 30px;
   margin-left: 0px;
-  background-color: #63738E;
-  color: #C9C6C3;
+  background-color: #2BBBD7;
+  color: white;
   text-decoration: none;
   font-size: 16px;
-  font-family: monospace;
+  font-family: Helvetica;
     &:hover {
     background-color: yellow;
     color: black;
@@ -96,18 +95,19 @@ p {
 
 .recentDecks {
   color: white;
-  text-align: left;
+  text-align: center;
   margin: 0;
-  padding: 25px 10px 10px 20px;
+  padding-left: 10%;
   font-size: 25px;
-  // font-weight: bold;
-  font-family: monospace; 
+  font-family: Helvetica; 
 }
 
 .decktitles {
-  font-family: monospace;
+  font-family: Helvetica;
   font-size: 25px;
-  color: blue;
+  font-weight: bold;
+  color: white;
+  background-color: #2BBBD7;
   text-align: center;
 }
 
@@ -116,11 +116,17 @@ p {
   @include omega(8n);
   width: 150px;
   height: 200px;
-  border: 1px solid #3E8ACC;
+  border: 5px solid #2BBBD7;
   margin: 10% 2% 2% 2%;
   border-radius: 6px;
-  background: black;
+  opacity: 5;
+  transition: opacity .25s ease-in-out;
 }
+
+  .gamecards:hover {
+    opacity: 0.5;
+  }
+
 .signoutbut {
   width: 20%;
 }
