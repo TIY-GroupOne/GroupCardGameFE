@@ -2047,9 +2047,11 @@ input {
   margin-left: 8%; }
 
 button {
-  color: #000080;
+  color: #ED2B98;
   width: 92%;
   height: 50px;
+  font-size: 18px;
+  font-weight: bold;
   background-color: #ADD8E6;
   border: none;
   border-radius: 6px;
@@ -2073,7 +2075,9 @@ button {
 
 h1 {
   text-align: center;
-  color: white; }
+  color: white;
+  font-size: 2em;
+  font-weight: bold; }
 
 .insideLogin {
   margin-top: 15%; }
@@ -2096,19 +2100,40 @@ p {
   max-width: 68em;
   margin-left: auto;
   margin-right: auto;
-  background: #4BB8D1; }
+  border-radius: 6px;
+  margin-bottom: 20px; }
   .dashboard::after {
     clear: both;
     content: "";
     display: table; }
 
+.dashboardButton {
+  width: 90px;
+  height: 30px;
+  margin-left: 20px;
+  background-color: #2BBBD7;
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-family: Helvetica; }
+  .dashboardButton:hover {
+    background-color: yellow;
+    color: black; }
+
 .recentDecks {
-  color: white; }
+  color: white;
+  text-align: center;
+  margin: 0;
+  padding-left: 8%;
+  font-size: 25px;
+  font-family: Helvetica; }
 
 .decktitles {
-  font-family: monospace;
+  font-family: Helvetica;
   font-size: 25px;
-  color: blue;
+  font-weight: bold;
+  color: white;
+  background-color: #2BBBD7;
   text-align: center; }
 
 .gamecards {
@@ -2118,16 +2143,20 @@ p {
   width: 31.76157%;
   width: 150px;
   height: 200px;
-  border: 1px solid #3E8ACC;
-  margin: 10% 2%;
+  border: 5px solid #2BBBD7;
+  margin: 10% 2% 2% 2%;
   border-radius: 6px;
-  background: black; }
+  opacity: 5;
+  transition: opacity .25s ease-in-out; }
   .gamecards:last-child {
     margin-right: 0; }
   .gamecards:nth-child(8n) {
     margin-right: 0; }
   .gamecards:nth-child(8n+1) {
     clear: left; }
+
+.gamecards:hover {
+  opacity: 0.5; }
 
 .signoutbut {
   width: 20%; }
