@@ -435,11 +435,6 @@ exports['default'] = _react2['default'].createClass({
       'div',
       null,
       _react2['default'].createElement(
-        'p',
-        null,
-        'Create a New Deck'
-      ),
-      _react2['default'].createElement(
         'button',
         { onClick: this.deckCompleteClickHandler },
         'Deck Complete'
@@ -593,18 +588,8 @@ exports['default'] = _react2['default'].createClass({
       'div',
       null,
       _react2['default'].createElement(
-        'p',
-        null,
-        'Goodbye'
-      ),
-      _react2['default'].createElement(
-        'p',
-        null,
-        'return to main page Button? Auto-timed return?'
-      ),
-      _react2['default'].createElement(
         'button',
-        { onClick: this.returnClickHandler },
+        { className: 'goodbyeButton', onClick: this.returnClickHandler },
         'Return to Game'
       )
     );
@@ -977,11 +962,6 @@ exports['default'] = _react2['default'].createClass({
     return _react2['default'].createElement(
       'div',
       { className: 'signUpForm' },
-      _react2['default'].createElement(
-        'p',
-        null,
-        'Sign Up Form'
-      ),
       _react2['default'].createElement(
         'form',
         null,

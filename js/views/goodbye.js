@@ -15,9 +15,7 @@ export default React.createClass({
    render() {
     return (
       <div>
-        <p>Goodbye</p>
-        <p>return to main page Button? Auto-timed return?</p>
-        <button onClick ={this.returnClickHandler}>Return to Game</button>
+        <button className="goodbyeButton" onClick ={this.returnClickHandler}>Return to Game</button>
       </div>
       );
     console.log('goodbye page');

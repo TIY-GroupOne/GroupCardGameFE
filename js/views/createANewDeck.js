@@ -14,7 +14,6 @@ export default React.createClass({
    render() {
     return (
       <div>
-        <p>Create a New Deck</p>
         <button onClick ={this.deckCompleteClickHandler}>Deck Complete</button>
       </div>
       );

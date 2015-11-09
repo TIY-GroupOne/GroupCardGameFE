@@ -34,7 +34,6 @@ export default React.createClass({
    render() {
     return (
       <div className='signUpForm'>
-        <p>Sign Up Form</p>
         <form>
           <input ref="username" type="username" placeholder="Username"/>
           <br/>
