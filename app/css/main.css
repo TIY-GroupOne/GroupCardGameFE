@@ -2164,4 +2164,22 @@ p {
 .goodbyeButton {
   margin-top: 25px; }
 
+.signUpForm {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #4BB8D1; }
+  .signUpForm::after {
+    clear: both;
+    content: "";
+    display: table; }
+
+.signupinput {
+  margin-left: 75%;
+  width: 200px; }
+
+.signupbut {
+  width: 200px;
+  margin-left: 75%; }
+
 /*# sourceMappingURL=main.css.map */

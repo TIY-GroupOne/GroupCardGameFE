@@ -35,13 +35,14 @@ export default React.createClass({
     return (
       <div className='signUpForm'>
         <form>
-          <input ref="username" type="username" placeholder="Username"/>
+          <input className="signupinput" ref="username" type="username" placeholder="Username"/>
           <br/>
-          <input ref="password" type="password" placeholder="Password"/>
+          <input className="signupinput" ref="password" type="password" placeholder="Password"/>
           <br/>
-          <input ref="email" type="email" placeholder="Email"/>
+          <input className="signupinput" ref="email" type="email" placeholder="Email"/>
+          <br/>
+          <button className="signupbut" onClick ={this.createNewAccount}>Sign Up</button>
         </form>
-        <button onClick ={this.createNewAccount}>Sign Up</button>
       </div>
       );
     console.log('sign up form view');

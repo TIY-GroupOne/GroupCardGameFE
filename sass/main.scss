@@ -135,3 +135,20 @@ p {
   margin-top:  25px;
 }
 
+// Signup Input Styles
+
+.signUpForm {
+    @include outer-container;
+    background-color: #4BB8D1;
+
+}
+
+.signupinput {
+  margin-left: 75%;
+  width: 200px;
+}
+.signupbut {
+  width: 200px;
+  margin-left: 75%;
+}
+

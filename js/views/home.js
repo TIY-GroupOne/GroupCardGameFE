@@ -56,6 +56,8 @@ export default React.createClass({
           <br/>
           <input ref="password" type="password" placeholder="Password"/>
         </form>
+        <p>
+        </p>
         <button onClick ={this.loginandContinue}>Log In</button>
         <br/>
         <button onClick ={this.signUpClickHandler}>SignUp</button>

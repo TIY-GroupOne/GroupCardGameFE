@@ -677,6 +677,7 @@ exports['default'] = _react2['default'].createClass({
           _react2['default'].createElement('br', null),
           _react2['default'].createElement('input', { ref: 'password', type: 'password', placeholder: 'Password' })
         ),
+        _react2['default'].createElement('p', null),
         _react2['default'].createElement(
           'button',
           { onClick: this.loginandContinue },
@@ -965,16 +966,17 @@ exports['default'] = _react2['default'].createClass({
       _react2['default'].createElement(
         'form',
         null,
-        _react2['default'].createElement('input', { ref: 'username', type: 'username', placeholder: 'Username' }),
+        _react2['default'].createElement('input', { className: 'signupinput', ref: 'username', type: 'username', placeholder: 'Username' }),
         _react2['default'].createElement('br', null),
-        _react2['default'].createElement('input', { ref: 'password', type: 'password', placeholder: 'Password' }),
+        _react2['default'].createElement('input', { className: 'signupinput', ref: 'password', type: 'password', placeholder: 'Password' }),
         _react2['default'].createElement('br', null),
-        _react2['default'].createElement('input', { ref: 'email', type: 'email', placeholder: 'Email' })
-      ),
-      _react2['default'].createElement(
-        'button',
-        { onClick: this.createNewAccount },
-        'Sign Up'
+        _react2['default'].createElement('input', { className: 'signupinput', ref: 'email', type: 'email', placeholder: 'Email' }),
+        _react2['default'].createElement('br', null),
+        _react2['default'].createElement(
+          'button',
+          { className: 'signupbut', onClick: this.createNewAccount },
+          'Sign Up'
+        )
       )
     );
     console.log('sign up form view');
