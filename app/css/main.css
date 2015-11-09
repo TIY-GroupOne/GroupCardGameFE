@@ -2108,9 +2108,9 @@ p {
     display: table; }
 
 .dashboardButton {
-  width: 100px;
+  width: 90px;
   height: 30px;
-  margin-left: 0px;
+  margin-left: 20px;
   background-color: #2BBBD7;
   color: white;
   text-decoration: none;
@@ -2124,7 +2124,7 @@ p {
   color: white;
   text-align: center;
   margin: 0;
-  padding-left: 10%;
+  padding-left: 8%;
   font-size: 25px;
   font-family: Helvetica; }
 
