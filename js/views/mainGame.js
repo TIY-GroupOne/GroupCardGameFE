@@ -42,14 +42,14 @@ export default React.createClass({
     return (
       <div>
         <div className="dashboard">
-        <h1 className="recentDecks">Most Recent Decks Added</h1>
+        <p className="recentDecks">Most Recent Decks Added</p>
         <div className="gamecards"><h3 className="decktitles">{this.state.deck1}</h3></div>
         <div className="gamecards"><h3 className="decktitles">{this.state.deck2}</h3></div>
         <div className="gamecards"><h3 className="decktitles">{this.state.deck3}</h3></div>
         <div className="gamecards"><h3 className="decktitles">{this.state.deck4}</h3></div>
         <div className="gamecards"><h3 className="decktitles">{this.state.deck5}</h3></div>
         </div>
-        <button onClick ={this.signOutClickHandler}>SignOut</button>
+        <button className="dashboardButton" onClick ={this.signOutClickHandler}>Sign Out</button>
       </div>
 
       );

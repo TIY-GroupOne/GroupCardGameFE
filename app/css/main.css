@@ -2047,9 +2047,11 @@ input {
   margin-left: 8%; }
 
 button {
-  color: #000080;
+  color: #ED2B98;
   width: 92%;
   height: 50px;
+  font-size: 18px;
+  font-weight: bold;
   background-color: #ADD8E6;
   border: none;
   border-radius: 6px;
@@ -2073,7 +2075,9 @@ button {
 
 h1 {
   text-align: center;
-  color: white; }
+  color: white;
+  font-size: 2em;
+  font-weight: bold; }
 
 .insideLogin {
   margin-top: 15%; }
@@ -2096,14 +2100,35 @@ p {
   max-width: 68em;
   margin-left: auto;
   margin-right: auto;
-  background: #4BB8D1; }
+  background: #4BB8D1;
+  border-radius: 6px;
+  margin-bottom: 20px; }
   .dashboard::after {
     clear: both;
     content: "";
     display: table; }
 
+.dashboardButton {
+  width: 100px;
+  height: 30px;
+  margin-left: 0px;
+  background-color: #968DD3;
+  color: #ED2B98;
+  text-decoration: none;
+  font-size: 16px;
+  font-family: monospace; }
+  .dashboardButton:hover {
+    background-color: yellow;
+    color: black; }
+
 .recentDecks {
-  color: white; }
+  color: white;
+  text-align: left;
+  margin: 0;
+  padding: 25px 10px 10px 20px;
+  font-size: 25px;
+  font-weight: bold;
+  font-family: monospace; }
 
 .decktitles {
   font-family: monospace;
@@ -2119,7 +2144,7 @@ p {
   width: 150px;
   height: 200px;
   border: 1px solid #3E8ACC;
-  margin: 10% 2%;
+  margin: 10% 2% 2% 2%;
   border-radius: 6px;
   background: black; }
   .gamecards:last-child {
